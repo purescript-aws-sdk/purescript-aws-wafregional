@@ -26,7 +26,7 @@ Encode Action
 
 ``` purescript
 newtype ActivatedRule
-  = ActivatedRule { "Priority" :: RulePriority, "RuleId" :: ResourceId, "Action" :: NullOrUndefined (WafAction), "OverrideAction" :: NullOrUndefined (WafOverrideAction), "Type" :: NullOrUndefined (WafRuleType) }
+  = ActivatedRule { "Priority" :: RulePriority, "RuleId" :: ResourceId, "Action" :: Maybe (WafAction), "OverrideAction" :: Maybe (WafOverrideAction), "Type" :: Maybe (WafRuleType) }
 ```
 
 <p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete, the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code> (<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p> <p>To specify whether to insert or delete a <code>Rule</code>, use the <code>Action</code> parameter in the <a>WebACLUpdate</a> data type.</p>
@@ -51,7 +51,7 @@ Constructs ActivatedRule from required parameters
 #### `newActivatedRule'`
 
 ``` purescript
-newActivatedRule' :: RulePriority -> ResourceId -> ({ "Priority" :: RulePriority, "RuleId" :: ResourceId, "Action" :: NullOrUndefined (WafAction), "OverrideAction" :: NullOrUndefined (WafOverrideAction), "Type" :: NullOrUndefined (WafRuleType) } -> { "Priority" :: RulePriority, "RuleId" :: ResourceId, "Action" :: NullOrUndefined (WafAction), "OverrideAction" :: NullOrUndefined (WafOverrideAction), "Type" :: NullOrUndefined (WafRuleType) }) -> ActivatedRule
+newActivatedRule' :: RulePriority -> ResourceId -> ({ "Priority" :: RulePriority, "RuleId" :: ResourceId, "Action" :: Maybe (WafAction), "OverrideAction" :: Maybe (WafOverrideAction), "Type" :: Maybe (WafRuleType) } -> { "Priority" :: RulePriority, "RuleId" :: ResourceId, "Action" :: Maybe (WafAction), "OverrideAction" :: Maybe (WafOverrideAction), "Type" :: Maybe (WafRuleType) }) -> ActivatedRule
 ```
 
 Constructs ActivatedRule's fields from required parameters
@@ -124,7 +124,7 @@ Encode AssociateWebACLResponse
 
 ``` purescript
 newtype ByteMatchSet
-  = ByteMatchSet { "ByteMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "ByteMatchTuples" :: ByteMatchTuples }
+  = ByteMatchSet { "ByteMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "ByteMatchTuples" :: ByteMatchTuples }
 ```
 
 <p>In a <a>GetByteMatchSet</a> request, <code>ByteMatchSet</code> is a complex type that contains the <code>ByteMatchSetId</code> and <code>Name</code> of a <code>ByteMatchSet</code>, and the values that you specified when you updated the <code>ByteMatchSet</code>. </p> <p>A complex type that contains <code>ByteMatchTuple</code> objects, which specify the parts of web requests that you want AWS WAF to inspect and the values that you want AWS WAF to search for. If a <code>ByteMatchSet</code> contains more than one <code>ByteMatchTuple</code> object, a request needs to match the settings in only one <code>ByteMatchTuple</code> to be considered a match.</p>
@@ -149,7 +149,7 @@ Constructs ByteMatchSet from required parameters
 #### `newByteMatchSet'`
 
 ``` purescript
-newByteMatchSet' :: ResourceId -> ByteMatchTuples -> ({ "ByteMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "ByteMatchTuples" :: ByteMatchTuples } -> { "ByteMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "ByteMatchTuples" :: ByteMatchTuples }) -> ByteMatchSet
+newByteMatchSet' :: ResourceId -> ByteMatchTuples -> ({ "ByteMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "ByteMatchTuples" :: ByteMatchTuples } -> { "ByteMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "ByteMatchTuples" :: ByteMatchTuples }) -> ByteMatchSet
 ```
 
 Constructs ByteMatchSet's fields from required parameters
@@ -436,7 +436,7 @@ Constructs CreateByteMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype CreateByteMatchSetResponse
-  = CreateByteMatchSetResponse { "ByteMatchSet" :: NullOrUndefined (ByteMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateByteMatchSetResponse { "ByteMatchSet" :: Maybe (ByteMatchSet), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -459,7 +459,7 @@ Constructs CreateByteMatchSetResponse from required parameters
 #### `newCreateByteMatchSetResponse'`
 
 ``` purescript
-newCreateByteMatchSetResponse' :: ({ "ByteMatchSet" :: NullOrUndefined (ByteMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ByteMatchSet" :: NullOrUndefined (ByteMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateByteMatchSetResponse
+newCreateByteMatchSetResponse' :: ({ "ByteMatchSet" :: Maybe (ByteMatchSet), "ChangeToken" :: Maybe (ChangeToken) } -> { "ByteMatchSet" :: Maybe (ByteMatchSet), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateByteMatchSetResponse
 ```
 
 Constructs CreateByteMatchSetResponse's fields from required parameters
@@ -500,7 +500,7 @@ Constructs CreateGeoMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype CreateGeoMatchSetResponse
-  = CreateGeoMatchSetResponse { "GeoMatchSet" :: NullOrUndefined (GeoMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateGeoMatchSetResponse { "GeoMatchSet" :: Maybe (GeoMatchSet), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -523,7 +523,7 @@ Constructs CreateGeoMatchSetResponse from required parameters
 #### `newCreateGeoMatchSetResponse'`
 
 ``` purescript
-newCreateGeoMatchSetResponse' :: ({ "GeoMatchSet" :: NullOrUndefined (GeoMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "GeoMatchSet" :: NullOrUndefined (GeoMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateGeoMatchSetResponse
+newCreateGeoMatchSetResponse' :: ({ "GeoMatchSet" :: Maybe (GeoMatchSet), "ChangeToken" :: Maybe (ChangeToken) } -> { "GeoMatchSet" :: Maybe (GeoMatchSet), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateGeoMatchSetResponse
 ```
 
 Constructs CreateGeoMatchSetResponse's fields from required parameters
@@ -564,7 +564,7 @@ Constructs CreateIPSetRequest's fields from required parameters
 
 ``` purescript
 newtype CreateIPSetResponse
-  = CreateIPSetResponse { "IPSet" :: NullOrUndefined (IPSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateIPSetResponse { "IPSet" :: Maybe (IPSet), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -587,7 +587,7 @@ Constructs CreateIPSetResponse from required parameters
 #### `newCreateIPSetResponse'`
 
 ``` purescript
-newCreateIPSetResponse' :: ({ "IPSet" :: NullOrUndefined (IPSet), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "IPSet" :: NullOrUndefined (IPSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateIPSetResponse
+newCreateIPSetResponse' :: ({ "IPSet" :: Maybe (IPSet), "ChangeToken" :: Maybe (ChangeToken) } -> { "IPSet" :: Maybe (IPSet), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateIPSetResponse
 ```
 
 Constructs CreateIPSetResponse's fields from required parameters
@@ -628,7 +628,7 @@ Constructs CreateRateBasedRuleRequest's fields from required parameters
 
 ``` purescript
 newtype CreateRateBasedRuleResponse
-  = CreateRateBasedRuleResponse { "Rule" :: NullOrUndefined (RateBasedRule), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateRateBasedRuleResponse { "Rule" :: Maybe (RateBasedRule), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -651,7 +651,7 @@ Constructs CreateRateBasedRuleResponse from required parameters
 #### `newCreateRateBasedRuleResponse'`
 
 ``` purescript
-newCreateRateBasedRuleResponse' :: ({ "Rule" :: NullOrUndefined (RateBasedRule), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "Rule" :: NullOrUndefined (RateBasedRule), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateRateBasedRuleResponse
+newCreateRateBasedRuleResponse' :: ({ "Rule" :: Maybe (RateBasedRule), "ChangeToken" :: Maybe (ChangeToken) } -> { "Rule" :: Maybe (RateBasedRule), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateRateBasedRuleResponse
 ```
 
 Constructs CreateRateBasedRuleResponse's fields from required parameters
@@ -692,7 +692,7 @@ Constructs CreateRegexMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype CreateRegexMatchSetResponse
-  = CreateRegexMatchSetResponse { "RegexMatchSet" :: NullOrUndefined (RegexMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateRegexMatchSetResponse { "RegexMatchSet" :: Maybe (RegexMatchSet), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -715,7 +715,7 @@ Constructs CreateRegexMatchSetResponse from required parameters
 #### `newCreateRegexMatchSetResponse'`
 
 ``` purescript
-newCreateRegexMatchSetResponse' :: ({ "RegexMatchSet" :: NullOrUndefined (RegexMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "RegexMatchSet" :: NullOrUndefined (RegexMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateRegexMatchSetResponse
+newCreateRegexMatchSetResponse' :: ({ "RegexMatchSet" :: Maybe (RegexMatchSet), "ChangeToken" :: Maybe (ChangeToken) } -> { "RegexMatchSet" :: Maybe (RegexMatchSet), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateRegexMatchSetResponse
 ```
 
 Constructs CreateRegexMatchSetResponse's fields from required parameters
@@ -756,7 +756,7 @@ Constructs CreateRegexPatternSetRequest's fields from required parameters
 
 ``` purescript
 newtype CreateRegexPatternSetResponse
-  = CreateRegexPatternSetResponse { "RegexPatternSet" :: NullOrUndefined (RegexPatternSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateRegexPatternSetResponse { "RegexPatternSet" :: Maybe (RegexPatternSet), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -779,7 +779,7 @@ Constructs CreateRegexPatternSetResponse from required parameters
 #### `newCreateRegexPatternSetResponse'`
 
 ``` purescript
-newCreateRegexPatternSetResponse' :: ({ "RegexPatternSet" :: NullOrUndefined (RegexPatternSet), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "RegexPatternSet" :: NullOrUndefined (RegexPatternSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateRegexPatternSetResponse
+newCreateRegexPatternSetResponse' :: ({ "RegexPatternSet" :: Maybe (RegexPatternSet), "ChangeToken" :: Maybe (ChangeToken) } -> { "RegexPatternSet" :: Maybe (RegexPatternSet), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateRegexPatternSetResponse
 ```
 
 Constructs CreateRegexPatternSetResponse's fields from required parameters
@@ -820,7 +820,7 @@ Constructs CreateRuleGroupRequest's fields from required parameters
 
 ``` purescript
 newtype CreateRuleGroupResponse
-  = CreateRuleGroupResponse { "RuleGroup" :: NullOrUndefined (RuleGroup), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateRuleGroupResponse { "RuleGroup" :: Maybe (RuleGroup), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -843,7 +843,7 @@ Constructs CreateRuleGroupResponse from required parameters
 #### `newCreateRuleGroupResponse'`
 
 ``` purescript
-newCreateRuleGroupResponse' :: ({ "RuleGroup" :: NullOrUndefined (RuleGroup), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "RuleGroup" :: NullOrUndefined (RuleGroup), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateRuleGroupResponse
+newCreateRuleGroupResponse' :: ({ "RuleGroup" :: Maybe (RuleGroup), "ChangeToken" :: Maybe (ChangeToken) } -> { "RuleGroup" :: Maybe (RuleGroup), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateRuleGroupResponse
 ```
 
 Constructs CreateRuleGroupResponse's fields from required parameters
@@ -884,7 +884,7 @@ Constructs CreateRuleRequest's fields from required parameters
 
 ``` purescript
 newtype CreateRuleResponse
-  = CreateRuleResponse { "Rule" :: NullOrUndefined (Rule), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateRuleResponse { "Rule" :: Maybe (Rule), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -907,7 +907,7 @@ Constructs CreateRuleResponse from required parameters
 #### `newCreateRuleResponse'`
 
 ``` purescript
-newCreateRuleResponse' :: ({ "Rule" :: NullOrUndefined (Rule), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "Rule" :: NullOrUndefined (Rule), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateRuleResponse
+newCreateRuleResponse' :: ({ "Rule" :: Maybe (Rule), "ChangeToken" :: Maybe (ChangeToken) } -> { "Rule" :: Maybe (Rule), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateRuleResponse
 ```
 
 Constructs CreateRuleResponse's fields from required parameters
@@ -948,7 +948,7 @@ Constructs CreateSizeConstraintSetRequest's fields from required parameters
 
 ``` purescript
 newtype CreateSizeConstraintSetResponse
-  = CreateSizeConstraintSetResponse { "SizeConstraintSet" :: NullOrUndefined (SizeConstraintSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateSizeConstraintSetResponse { "SizeConstraintSet" :: Maybe (SizeConstraintSet), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -971,7 +971,7 @@ Constructs CreateSizeConstraintSetResponse from required parameters
 #### `newCreateSizeConstraintSetResponse'`
 
 ``` purescript
-newCreateSizeConstraintSetResponse' :: ({ "SizeConstraintSet" :: NullOrUndefined (SizeConstraintSet), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "SizeConstraintSet" :: NullOrUndefined (SizeConstraintSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateSizeConstraintSetResponse
+newCreateSizeConstraintSetResponse' :: ({ "SizeConstraintSet" :: Maybe (SizeConstraintSet), "ChangeToken" :: Maybe (ChangeToken) } -> { "SizeConstraintSet" :: Maybe (SizeConstraintSet), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateSizeConstraintSetResponse
 ```
 
 Constructs CreateSizeConstraintSetResponse's fields from required parameters
@@ -1014,7 +1014,7 @@ Constructs CreateSqlInjectionMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype CreateSqlInjectionMatchSetResponse
-  = CreateSqlInjectionMatchSetResponse { "SqlInjectionMatchSet" :: NullOrUndefined (SqlInjectionMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateSqlInjectionMatchSetResponse { "SqlInjectionMatchSet" :: Maybe (SqlInjectionMatchSet), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 <p>The response to a <code>CreateSqlInjectionMatchSet</code> request.</p>
@@ -1039,7 +1039,7 @@ Constructs CreateSqlInjectionMatchSetResponse from required parameters
 #### `newCreateSqlInjectionMatchSetResponse'`
 
 ``` purescript
-newCreateSqlInjectionMatchSetResponse' :: ({ "SqlInjectionMatchSet" :: NullOrUndefined (SqlInjectionMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "SqlInjectionMatchSet" :: NullOrUndefined (SqlInjectionMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateSqlInjectionMatchSetResponse
+newCreateSqlInjectionMatchSetResponse' :: ({ "SqlInjectionMatchSet" :: Maybe (SqlInjectionMatchSet), "ChangeToken" :: Maybe (ChangeToken) } -> { "SqlInjectionMatchSet" :: Maybe (SqlInjectionMatchSet), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateSqlInjectionMatchSetResponse
 ```
 
 Constructs CreateSqlInjectionMatchSetResponse's fields from required parameters
@@ -1080,7 +1080,7 @@ Constructs CreateWebACLRequest's fields from required parameters
 
 ``` purescript
 newtype CreateWebACLResponse
-  = CreateWebACLResponse { "WebACL" :: NullOrUndefined (WebACL), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateWebACLResponse { "WebACL" :: Maybe (WebACL), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1103,7 +1103,7 @@ Constructs CreateWebACLResponse from required parameters
 #### `newCreateWebACLResponse'`
 
 ``` purescript
-newCreateWebACLResponse' :: ({ "WebACL" :: NullOrUndefined (WebACL), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "WebACL" :: NullOrUndefined (WebACL), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateWebACLResponse
+newCreateWebACLResponse' :: ({ "WebACL" :: Maybe (WebACL), "ChangeToken" :: Maybe (ChangeToken) } -> { "WebACL" :: Maybe (WebACL), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateWebACLResponse
 ```
 
 Constructs CreateWebACLResponse's fields from required parameters
@@ -1146,7 +1146,7 @@ Constructs CreateXssMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype CreateXssMatchSetResponse
-  = CreateXssMatchSetResponse { "XssMatchSet" :: NullOrUndefined (XssMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = CreateXssMatchSetResponse { "XssMatchSet" :: Maybe (XssMatchSet), "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 <p>The response to a <code>CreateXssMatchSet</code> request.</p>
@@ -1171,7 +1171,7 @@ Constructs CreateXssMatchSetResponse from required parameters
 #### `newCreateXssMatchSetResponse'`
 
 ``` purescript
-newCreateXssMatchSetResponse' :: ({ "XssMatchSet" :: NullOrUndefined (XssMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "XssMatchSet" :: NullOrUndefined (XssMatchSet), "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> CreateXssMatchSetResponse
+newCreateXssMatchSetResponse' :: ({ "XssMatchSet" :: Maybe (XssMatchSet), "ChangeToken" :: Maybe (ChangeToken) } -> { "XssMatchSet" :: Maybe (XssMatchSet), "ChangeToken" :: Maybe (ChangeToken) }) -> CreateXssMatchSetResponse
 ```
 
 Constructs CreateXssMatchSetResponse's fields from required parameters
@@ -1212,7 +1212,7 @@ Constructs DeleteByteMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteByteMatchSetResponse
-  = DeleteByteMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteByteMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1235,7 +1235,7 @@ Constructs DeleteByteMatchSetResponse from required parameters
 #### `newDeleteByteMatchSetResponse'`
 
 ``` purescript
-newDeleteByteMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteByteMatchSetResponse
+newDeleteByteMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteByteMatchSetResponse
 ```
 
 Constructs DeleteByteMatchSetResponse's fields from required parameters
@@ -1276,7 +1276,7 @@ Constructs DeleteGeoMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteGeoMatchSetResponse
-  = DeleteGeoMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteGeoMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1299,7 +1299,7 @@ Constructs DeleteGeoMatchSetResponse from required parameters
 #### `newDeleteGeoMatchSetResponse'`
 
 ``` purescript
-newDeleteGeoMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteGeoMatchSetResponse
+newDeleteGeoMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteGeoMatchSetResponse
 ```
 
 Constructs DeleteGeoMatchSetResponse's fields from required parameters
@@ -1340,7 +1340,7 @@ Constructs DeleteIPSetRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteIPSetResponse
-  = DeleteIPSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteIPSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1363,7 +1363,7 @@ Constructs DeleteIPSetResponse from required parameters
 #### `newDeleteIPSetResponse'`
 
 ``` purescript
-newDeleteIPSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteIPSetResponse
+newDeleteIPSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteIPSetResponse
 ```
 
 Constructs DeleteIPSetResponse's fields from required parameters
@@ -1452,7 +1452,7 @@ Constructs DeleteRateBasedRuleRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteRateBasedRuleResponse
-  = DeleteRateBasedRuleResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteRateBasedRuleResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1475,7 +1475,7 @@ Constructs DeleteRateBasedRuleResponse from required parameters
 #### `newDeleteRateBasedRuleResponse'`
 
 ``` purescript
-newDeleteRateBasedRuleResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteRateBasedRuleResponse
+newDeleteRateBasedRuleResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteRateBasedRuleResponse
 ```
 
 Constructs DeleteRateBasedRuleResponse's fields from required parameters
@@ -1516,7 +1516,7 @@ Constructs DeleteRegexMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteRegexMatchSetResponse
-  = DeleteRegexMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteRegexMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1539,7 +1539,7 @@ Constructs DeleteRegexMatchSetResponse from required parameters
 #### `newDeleteRegexMatchSetResponse'`
 
 ``` purescript
-newDeleteRegexMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteRegexMatchSetResponse
+newDeleteRegexMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteRegexMatchSetResponse
 ```
 
 Constructs DeleteRegexMatchSetResponse's fields from required parameters
@@ -1580,7 +1580,7 @@ Constructs DeleteRegexPatternSetRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteRegexPatternSetResponse
-  = DeleteRegexPatternSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteRegexPatternSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1603,7 +1603,7 @@ Constructs DeleteRegexPatternSetResponse from required parameters
 #### `newDeleteRegexPatternSetResponse'`
 
 ``` purescript
-newDeleteRegexPatternSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteRegexPatternSetResponse
+newDeleteRegexPatternSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteRegexPatternSetResponse
 ```
 
 Constructs DeleteRegexPatternSetResponse's fields from required parameters
@@ -1644,7 +1644,7 @@ Constructs DeleteRuleGroupRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteRuleGroupResponse
-  = DeleteRuleGroupResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteRuleGroupResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1667,7 +1667,7 @@ Constructs DeleteRuleGroupResponse from required parameters
 #### `newDeleteRuleGroupResponse'`
 
 ``` purescript
-newDeleteRuleGroupResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteRuleGroupResponse
+newDeleteRuleGroupResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteRuleGroupResponse
 ```
 
 Constructs DeleteRuleGroupResponse's fields from required parameters
@@ -1708,7 +1708,7 @@ Constructs DeleteRuleRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteRuleResponse
-  = DeleteRuleResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteRuleResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1731,7 +1731,7 @@ Constructs DeleteRuleResponse from required parameters
 #### `newDeleteRuleResponse'`
 
 ``` purescript
-newDeleteRuleResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteRuleResponse
+newDeleteRuleResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteRuleResponse
 ```
 
 Constructs DeleteRuleResponse's fields from required parameters
@@ -1772,7 +1772,7 @@ Constructs DeleteSizeConstraintSetRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteSizeConstraintSetResponse
-  = DeleteSizeConstraintSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteSizeConstraintSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1795,7 +1795,7 @@ Constructs DeleteSizeConstraintSetResponse from required parameters
 #### `newDeleteSizeConstraintSetResponse'`
 
 ``` purescript
-newDeleteSizeConstraintSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteSizeConstraintSetResponse
+newDeleteSizeConstraintSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteSizeConstraintSetResponse
 ```
 
 Constructs DeleteSizeConstraintSetResponse's fields from required parameters
@@ -1838,7 +1838,7 @@ Constructs DeleteSqlInjectionMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteSqlInjectionMatchSetResponse
-  = DeleteSqlInjectionMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteSqlInjectionMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 <p>The response to a request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.</p>
@@ -1863,7 +1863,7 @@ Constructs DeleteSqlInjectionMatchSetResponse from required parameters
 #### `newDeleteSqlInjectionMatchSetResponse'`
 
 ``` purescript
-newDeleteSqlInjectionMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteSqlInjectionMatchSetResponse
+newDeleteSqlInjectionMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteSqlInjectionMatchSetResponse
 ```
 
 Constructs DeleteSqlInjectionMatchSetResponse's fields from required parameters
@@ -1904,7 +1904,7 @@ Constructs DeleteWebACLRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteWebACLResponse
-  = DeleteWebACLResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteWebACLResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -1927,7 +1927,7 @@ Constructs DeleteWebACLResponse from required parameters
 #### `newDeleteWebACLResponse'`
 
 ``` purescript
-newDeleteWebACLResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteWebACLResponse
+newDeleteWebACLResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteWebACLResponse
 ```
 
 Constructs DeleteWebACLResponse's fields from required parameters
@@ -1970,7 +1970,7 @@ Constructs DeleteXssMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteXssMatchSetResponse
-  = DeleteXssMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = DeleteXssMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 <p>The response to a request to delete an <a>XssMatchSet</a> from AWS WAF.</p>
@@ -1995,7 +1995,7 @@ Constructs DeleteXssMatchSetResponse from required parameters
 #### `newDeleteXssMatchSetResponse'`
 
 ``` purescript
-newDeleteXssMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> DeleteXssMatchSetResponse
+newDeleteXssMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> DeleteXssMatchSetResponse
 ```
 
 Constructs DeleteXssMatchSetResponse's fields from required parameters
@@ -2052,7 +2052,7 @@ Encode DisassociateWebACLResponse
 
 ``` purescript
 newtype FieldToMatch
-  = FieldToMatch { "Type" :: MatchFieldType, "Data" :: NullOrUndefined (MatchFieldData) }
+  = FieldToMatch { "Type" :: MatchFieldType, "Data" :: Maybe (MatchFieldData) }
 ```
 
 <p>Specifies where in a web request to look for <code>TargetString</code>.</p>
@@ -2077,7 +2077,7 @@ Constructs FieldToMatch from required parameters
 #### `newFieldToMatch'`
 
 ``` purescript
-newFieldToMatch' :: MatchFieldType -> ({ "Type" :: MatchFieldType, "Data" :: NullOrUndefined (MatchFieldData) } -> { "Type" :: MatchFieldType, "Data" :: NullOrUndefined (MatchFieldData) }) -> FieldToMatch
+newFieldToMatch' :: MatchFieldType -> ({ "Type" :: MatchFieldType, "Data" :: Maybe (MatchFieldData) } -> { "Type" :: MatchFieldType, "Data" :: Maybe (MatchFieldData) }) -> FieldToMatch
 ```
 
 Constructs FieldToMatch's fields from required parameters
@@ -2168,7 +2168,7 @@ Encode GeoMatchConstraints
 
 ``` purescript
 newtype GeoMatchSet
-  = GeoMatchSet { "GeoMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "GeoMatchConstraints" :: GeoMatchConstraints }
+  = GeoMatchSet { "GeoMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "GeoMatchConstraints" :: GeoMatchConstraints }
 ```
 
 <p>Contains one or more countries that AWS WAF will search for.</p>
@@ -2193,7 +2193,7 @@ Constructs GeoMatchSet from required parameters
 #### `newGeoMatchSet'`
 
 ``` purescript
-newGeoMatchSet' :: GeoMatchConstraints -> ResourceId -> ({ "GeoMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "GeoMatchConstraints" :: GeoMatchConstraints } -> { "GeoMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "GeoMatchConstraints" :: GeoMatchConstraints }) -> GeoMatchSet
+newGeoMatchSet' :: GeoMatchConstraints -> ResourceId -> ({ "GeoMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "GeoMatchConstraints" :: GeoMatchConstraints } -> { "GeoMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "GeoMatchConstraints" :: GeoMatchConstraints }) -> GeoMatchSet
 ```
 
 Constructs GeoMatchSet's fields from required parameters
@@ -2334,7 +2334,7 @@ Constructs GetByteMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype GetByteMatchSetResponse
-  = GetByteMatchSetResponse { "ByteMatchSet" :: NullOrUndefined (ByteMatchSet) }
+  = GetByteMatchSetResponse { "ByteMatchSet" :: Maybe (ByteMatchSet) }
 ```
 
 ##### Instances
@@ -2357,7 +2357,7 @@ Constructs GetByteMatchSetResponse from required parameters
 #### `newGetByteMatchSetResponse'`
 
 ``` purescript
-newGetByteMatchSetResponse' :: ({ "ByteMatchSet" :: NullOrUndefined (ByteMatchSet) } -> { "ByteMatchSet" :: NullOrUndefined (ByteMatchSet) }) -> GetByteMatchSetResponse
+newGetByteMatchSetResponse' :: ({ "ByteMatchSet" :: Maybe (ByteMatchSet) } -> { "ByteMatchSet" :: Maybe (ByteMatchSet) }) -> GetByteMatchSetResponse
 ```
 
 Constructs GetByteMatchSetResponse's fields from required parameters
@@ -2382,7 +2382,7 @@ Encode GetChangeTokenRequest
 
 ``` purescript
 newtype GetChangeTokenResponse
-  = GetChangeTokenResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = GetChangeTokenResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -2405,7 +2405,7 @@ Constructs GetChangeTokenResponse from required parameters
 #### `newGetChangeTokenResponse'`
 
 ``` purescript
-newGetChangeTokenResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> GetChangeTokenResponse
+newGetChangeTokenResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> GetChangeTokenResponse
 ```
 
 Constructs GetChangeTokenResponse's fields from required parameters
@@ -2446,7 +2446,7 @@ Constructs GetChangeTokenStatusRequest's fields from required parameters
 
 ``` purescript
 newtype GetChangeTokenStatusResponse
-  = GetChangeTokenStatusResponse { "ChangeTokenStatus" :: NullOrUndefined (ChangeTokenStatus) }
+  = GetChangeTokenStatusResponse { "ChangeTokenStatus" :: Maybe (ChangeTokenStatus) }
 ```
 
 ##### Instances
@@ -2469,7 +2469,7 @@ Constructs GetChangeTokenStatusResponse from required parameters
 #### `newGetChangeTokenStatusResponse'`
 
 ``` purescript
-newGetChangeTokenStatusResponse' :: ({ "ChangeTokenStatus" :: NullOrUndefined (ChangeTokenStatus) } -> { "ChangeTokenStatus" :: NullOrUndefined (ChangeTokenStatus) }) -> GetChangeTokenStatusResponse
+newGetChangeTokenStatusResponse' :: ({ "ChangeTokenStatus" :: Maybe (ChangeTokenStatus) } -> { "ChangeTokenStatus" :: Maybe (ChangeTokenStatus) }) -> GetChangeTokenStatusResponse
 ```
 
 Constructs GetChangeTokenStatusResponse's fields from required parameters
@@ -2510,7 +2510,7 @@ Constructs GetGeoMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype GetGeoMatchSetResponse
-  = GetGeoMatchSetResponse { "GeoMatchSet" :: NullOrUndefined (GeoMatchSet) }
+  = GetGeoMatchSetResponse { "GeoMatchSet" :: Maybe (GeoMatchSet) }
 ```
 
 ##### Instances
@@ -2533,7 +2533,7 @@ Constructs GetGeoMatchSetResponse from required parameters
 #### `newGetGeoMatchSetResponse'`
 
 ``` purescript
-newGetGeoMatchSetResponse' :: ({ "GeoMatchSet" :: NullOrUndefined (GeoMatchSet) } -> { "GeoMatchSet" :: NullOrUndefined (GeoMatchSet) }) -> GetGeoMatchSetResponse
+newGetGeoMatchSetResponse' :: ({ "GeoMatchSet" :: Maybe (GeoMatchSet) } -> { "GeoMatchSet" :: Maybe (GeoMatchSet) }) -> GetGeoMatchSetResponse
 ```
 
 Constructs GetGeoMatchSetResponse's fields from required parameters
@@ -2574,7 +2574,7 @@ Constructs GetIPSetRequest's fields from required parameters
 
 ``` purescript
 newtype GetIPSetResponse
-  = GetIPSetResponse { "IPSet" :: NullOrUndefined (IPSet) }
+  = GetIPSetResponse { "IPSet" :: Maybe (IPSet) }
 ```
 
 ##### Instances
@@ -2597,7 +2597,7 @@ Constructs GetIPSetResponse from required parameters
 #### `newGetIPSetResponse'`
 
 ``` purescript
-newGetIPSetResponse' :: ({ "IPSet" :: NullOrUndefined (IPSet) } -> { "IPSet" :: NullOrUndefined (IPSet) }) -> GetIPSetResponse
+newGetIPSetResponse' :: ({ "IPSet" :: Maybe (IPSet) } -> { "IPSet" :: Maybe (IPSet) }) -> GetIPSetResponse
 ```
 
 Constructs GetIPSetResponse's fields from required parameters
@@ -2638,7 +2638,7 @@ Constructs GetPermissionPolicyRequest's fields from required parameters
 
 ``` purescript
 newtype GetPermissionPolicyResponse
-  = GetPermissionPolicyResponse { "Policy" :: NullOrUndefined (PolicyString) }
+  = GetPermissionPolicyResponse { "Policy" :: Maybe (PolicyString) }
 ```
 
 ##### Instances
@@ -2661,7 +2661,7 @@ Constructs GetPermissionPolicyResponse from required parameters
 #### `newGetPermissionPolicyResponse'`
 
 ``` purescript
-newGetPermissionPolicyResponse' :: ({ "Policy" :: NullOrUndefined (PolicyString) } -> { "Policy" :: NullOrUndefined (PolicyString) }) -> GetPermissionPolicyResponse
+newGetPermissionPolicyResponse' :: ({ "Policy" :: Maybe (PolicyString) } -> { "Policy" :: Maybe (PolicyString) }) -> GetPermissionPolicyResponse
 ```
 
 Constructs GetPermissionPolicyResponse's fields from required parameters
@@ -2670,7 +2670,7 @@ Constructs GetPermissionPolicyResponse's fields from required parameters
 
 ``` purescript
 newtype GetRateBasedRuleManagedKeysRequest
-  = GetRateBasedRuleManagedKeysRequest { "RuleId" :: ResourceId, "NextMarker" :: NullOrUndefined (NextMarker) }
+  = GetRateBasedRuleManagedKeysRequest { "RuleId" :: ResourceId, "NextMarker" :: Maybe (NextMarker) }
 ```
 
 ##### Instances
@@ -2693,7 +2693,7 @@ Constructs GetRateBasedRuleManagedKeysRequest from required parameters
 #### `newGetRateBasedRuleManagedKeysRequest'`
 
 ``` purescript
-newGetRateBasedRuleManagedKeysRequest' :: ResourceId -> ({ "RuleId" :: ResourceId, "NextMarker" :: NullOrUndefined (NextMarker) } -> { "RuleId" :: ResourceId, "NextMarker" :: NullOrUndefined (NextMarker) }) -> GetRateBasedRuleManagedKeysRequest
+newGetRateBasedRuleManagedKeysRequest' :: ResourceId -> ({ "RuleId" :: ResourceId, "NextMarker" :: Maybe (NextMarker) } -> { "RuleId" :: ResourceId, "NextMarker" :: Maybe (NextMarker) }) -> GetRateBasedRuleManagedKeysRequest
 ```
 
 Constructs GetRateBasedRuleManagedKeysRequest's fields from required parameters
@@ -2702,7 +2702,7 @@ Constructs GetRateBasedRuleManagedKeysRequest's fields from required parameters
 
 ``` purescript
 newtype GetRateBasedRuleManagedKeysResponse
-  = GetRateBasedRuleManagedKeysResponse { "ManagedKeys" :: NullOrUndefined (ManagedKeys), "NextMarker" :: NullOrUndefined (NextMarker) }
+  = GetRateBasedRuleManagedKeysResponse { "ManagedKeys" :: Maybe (ManagedKeys), "NextMarker" :: Maybe (NextMarker) }
 ```
 
 ##### Instances
@@ -2725,7 +2725,7 @@ Constructs GetRateBasedRuleManagedKeysResponse from required parameters
 #### `newGetRateBasedRuleManagedKeysResponse'`
 
 ``` purescript
-newGetRateBasedRuleManagedKeysResponse' :: ({ "ManagedKeys" :: NullOrUndefined (ManagedKeys), "NextMarker" :: NullOrUndefined (NextMarker) } -> { "ManagedKeys" :: NullOrUndefined (ManagedKeys), "NextMarker" :: NullOrUndefined (NextMarker) }) -> GetRateBasedRuleManagedKeysResponse
+newGetRateBasedRuleManagedKeysResponse' :: ({ "ManagedKeys" :: Maybe (ManagedKeys), "NextMarker" :: Maybe (NextMarker) } -> { "ManagedKeys" :: Maybe (ManagedKeys), "NextMarker" :: Maybe (NextMarker) }) -> GetRateBasedRuleManagedKeysResponse
 ```
 
 Constructs GetRateBasedRuleManagedKeysResponse's fields from required parameters
@@ -2766,7 +2766,7 @@ Constructs GetRateBasedRuleRequest's fields from required parameters
 
 ``` purescript
 newtype GetRateBasedRuleResponse
-  = GetRateBasedRuleResponse { "Rule" :: NullOrUndefined (RateBasedRule) }
+  = GetRateBasedRuleResponse { "Rule" :: Maybe (RateBasedRule) }
 ```
 
 ##### Instances
@@ -2789,7 +2789,7 @@ Constructs GetRateBasedRuleResponse from required parameters
 #### `newGetRateBasedRuleResponse'`
 
 ``` purescript
-newGetRateBasedRuleResponse' :: ({ "Rule" :: NullOrUndefined (RateBasedRule) } -> { "Rule" :: NullOrUndefined (RateBasedRule) }) -> GetRateBasedRuleResponse
+newGetRateBasedRuleResponse' :: ({ "Rule" :: Maybe (RateBasedRule) } -> { "Rule" :: Maybe (RateBasedRule) }) -> GetRateBasedRuleResponse
 ```
 
 Constructs GetRateBasedRuleResponse's fields from required parameters
@@ -2830,7 +2830,7 @@ Constructs GetRegexMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype GetRegexMatchSetResponse
-  = GetRegexMatchSetResponse { "RegexMatchSet" :: NullOrUndefined (RegexMatchSet) }
+  = GetRegexMatchSetResponse { "RegexMatchSet" :: Maybe (RegexMatchSet) }
 ```
 
 ##### Instances
@@ -2853,7 +2853,7 @@ Constructs GetRegexMatchSetResponse from required parameters
 #### `newGetRegexMatchSetResponse'`
 
 ``` purescript
-newGetRegexMatchSetResponse' :: ({ "RegexMatchSet" :: NullOrUndefined (RegexMatchSet) } -> { "RegexMatchSet" :: NullOrUndefined (RegexMatchSet) }) -> GetRegexMatchSetResponse
+newGetRegexMatchSetResponse' :: ({ "RegexMatchSet" :: Maybe (RegexMatchSet) } -> { "RegexMatchSet" :: Maybe (RegexMatchSet) }) -> GetRegexMatchSetResponse
 ```
 
 Constructs GetRegexMatchSetResponse's fields from required parameters
@@ -2894,7 +2894,7 @@ Constructs GetRegexPatternSetRequest's fields from required parameters
 
 ``` purescript
 newtype GetRegexPatternSetResponse
-  = GetRegexPatternSetResponse { "RegexPatternSet" :: NullOrUndefined (RegexPatternSet) }
+  = GetRegexPatternSetResponse { "RegexPatternSet" :: Maybe (RegexPatternSet) }
 ```
 
 ##### Instances
@@ -2917,7 +2917,7 @@ Constructs GetRegexPatternSetResponse from required parameters
 #### `newGetRegexPatternSetResponse'`
 
 ``` purescript
-newGetRegexPatternSetResponse' :: ({ "RegexPatternSet" :: NullOrUndefined (RegexPatternSet) } -> { "RegexPatternSet" :: NullOrUndefined (RegexPatternSet) }) -> GetRegexPatternSetResponse
+newGetRegexPatternSetResponse' :: ({ "RegexPatternSet" :: Maybe (RegexPatternSet) } -> { "RegexPatternSet" :: Maybe (RegexPatternSet) }) -> GetRegexPatternSetResponse
 ```
 
 Constructs GetRegexPatternSetResponse's fields from required parameters
@@ -2958,7 +2958,7 @@ Constructs GetRuleGroupRequest's fields from required parameters
 
 ``` purescript
 newtype GetRuleGroupResponse
-  = GetRuleGroupResponse { "RuleGroup" :: NullOrUndefined (RuleGroup) }
+  = GetRuleGroupResponse { "RuleGroup" :: Maybe (RuleGroup) }
 ```
 
 ##### Instances
@@ -2981,7 +2981,7 @@ Constructs GetRuleGroupResponse from required parameters
 #### `newGetRuleGroupResponse'`
 
 ``` purescript
-newGetRuleGroupResponse' :: ({ "RuleGroup" :: NullOrUndefined (RuleGroup) } -> { "RuleGroup" :: NullOrUndefined (RuleGroup) }) -> GetRuleGroupResponse
+newGetRuleGroupResponse' :: ({ "RuleGroup" :: Maybe (RuleGroup) } -> { "RuleGroup" :: Maybe (RuleGroup) }) -> GetRuleGroupResponse
 ```
 
 Constructs GetRuleGroupResponse's fields from required parameters
@@ -3022,7 +3022,7 @@ Constructs GetRuleRequest's fields from required parameters
 
 ``` purescript
 newtype GetRuleResponse
-  = GetRuleResponse { "Rule" :: NullOrUndefined (Rule) }
+  = GetRuleResponse { "Rule" :: Maybe (Rule) }
 ```
 
 ##### Instances
@@ -3045,7 +3045,7 @@ Constructs GetRuleResponse from required parameters
 #### `newGetRuleResponse'`
 
 ``` purescript
-newGetRuleResponse' :: ({ "Rule" :: NullOrUndefined (Rule) } -> { "Rule" :: NullOrUndefined (Rule) }) -> GetRuleResponse
+newGetRuleResponse' :: ({ "Rule" :: Maybe (Rule) } -> { "Rule" :: Maybe (Rule) }) -> GetRuleResponse
 ```
 
 Constructs GetRuleResponse's fields from required parameters
@@ -3102,7 +3102,7 @@ Constructs GetSampledRequestsRequest's fields from required parameters
 
 ``` purescript
 newtype GetSampledRequestsResponse
-  = GetSampledRequestsResponse { "SampledRequests" :: NullOrUndefined (SampledHTTPRequests), "PopulationSize" :: NullOrUndefined (PopulationSize), "TimeWindow" :: NullOrUndefined (TimeWindow) }
+  = GetSampledRequestsResponse { "SampledRequests" :: Maybe (SampledHTTPRequests), "PopulationSize" :: Maybe (PopulationSize), "TimeWindow" :: Maybe (TimeWindow) }
 ```
 
 ##### Instances
@@ -3125,7 +3125,7 @@ Constructs GetSampledRequestsResponse from required parameters
 #### `newGetSampledRequestsResponse'`
 
 ``` purescript
-newGetSampledRequestsResponse' :: ({ "SampledRequests" :: NullOrUndefined (SampledHTTPRequests), "PopulationSize" :: NullOrUndefined (PopulationSize), "TimeWindow" :: NullOrUndefined (TimeWindow) } -> { "SampledRequests" :: NullOrUndefined (SampledHTTPRequests), "PopulationSize" :: NullOrUndefined (PopulationSize), "TimeWindow" :: NullOrUndefined (TimeWindow) }) -> GetSampledRequestsResponse
+newGetSampledRequestsResponse' :: ({ "SampledRequests" :: Maybe (SampledHTTPRequests), "PopulationSize" :: Maybe (PopulationSize), "TimeWindow" :: Maybe (TimeWindow) } -> { "SampledRequests" :: Maybe (SampledHTTPRequests), "PopulationSize" :: Maybe (PopulationSize), "TimeWindow" :: Maybe (TimeWindow) }) -> GetSampledRequestsResponse
 ```
 
 Constructs GetSampledRequestsResponse's fields from required parameters
@@ -3166,7 +3166,7 @@ Constructs GetSizeConstraintSetRequest's fields from required parameters
 
 ``` purescript
 newtype GetSizeConstraintSetResponse
-  = GetSizeConstraintSetResponse { "SizeConstraintSet" :: NullOrUndefined (SizeConstraintSet) }
+  = GetSizeConstraintSetResponse { "SizeConstraintSet" :: Maybe (SizeConstraintSet) }
 ```
 
 ##### Instances
@@ -3189,7 +3189,7 @@ Constructs GetSizeConstraintSetResponse from required parameters
 #### `newGetSizeConstraintSetResponse'`
 
 ``` purescript
-newGetSizeConstraintSetResponse' :: ({ "SizeConstraintSet" :: NullOrUndefined (SizeConstraintSet) } -> { "SizeConstraintSet" :: NullOrUndefined (SizeConstraintSet) }) -> GetSizeConstraintSetResponse
+newGetSizeConstraintSetResponse' :: ({ "SizeConstraintSet" :: Maybe (SizeConstraintSet) } -> { "SizeConstraintSet" :: Maybe (SizeConstraintSet) }) -> GetSizeConstraintSetResponse
 ```
 
 Constructs GetSizeConstraintSetResponse's fields from required parameters
@@ -3232,7 +3232,7 @@ Constructs GetSqlInjectionMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype GetSqlInjectionMatchSetResponse
-  = GetSqlInjectionMatchSetResponse { "SqlInjectionMatchSet" :: NullOrUndefined (SqlInjectionMatchSet) }
+  = GetSqlInjectionMatchSetResponse { "SqlInjectionMatchSet" :: Maybe (SqlInjectionMatchSet) }
 ```
 
 <p>The response to a <a>GetSqlInjectionMatchSet</a> request.</p>
@@ -3257,7 +3257,7 @@ Constructs GetSqlInjectionMatchSetResponse from required parameters
 #### `newGetSqlInjectionMatchSetResponse'`
 
 ``` purescript
-newGetSqlInjectionMatchSetResponse' :: ({ "SqlInjectionMatchSet" :: NullOrUndefined (SqlInjectionMatchSet) } -> { "SqlInjectionMatchSet" :: NullOrUndefined (SqlInjectionMatchSet) }) -> GetSqlInjectionMatchSetResponse
+newGetSqlInjectionMatchSetResponse' :: ({ "SqlInjectionMatchSet" :: Maybe (SqlInjectionMatchSet) } -> { "SqlInjectionMatchSet" :: Maybe (SqlInjectionMatchSet) }) -> GetSqlInjectionMatchSetResponse
 ```
 
 Constructs GetSqlInjectionMatchSetResponse's fields from required parameters
@@ -3298,7 +3298,7 @@ Constructs GetWebACLForResourceRequest's fields from required parameters
 
 ``` purescript
 newtype GetWebACLForResourceResponse
-  = GetWebACLForResourceResponse { "WebACLSummary" :: NullOrUndefined (WebACLSummary) }
+  = GetWebACLForResourceResponse { "WebACLSummary" :: Maybe (WebACLSummary) }
 ```
 
 ##### Instances
@@ -3321,7 +3321,7 @@ Constructs GetWebACLForResourceResponse from required parameters
 #### `newGetWebACLForResourceResponse'`
 
 ``` purescript
-newGetWebACLForResourceResponse' :: ({ "WebACLSummary" :: NullOrUndefined (WebACLSummary) } -> { "WebACLSummary" :: NullOrUndefined (WebACLSummary) }) -> GetWebACLForResourceResponse
+newGetWebACLForResourceResponse' :: ({ "WebACLSummary" :: Maybe (WebACLSummary) } -> { "WebACLSummary" :: Maybe (WebACLSummary) }) -> GetWebACLForResourceResponse
 ```
 
 Constructs GetWebACLForResourceResponse's fields from required parameters
@@ -3362,7 +3362,7 @@ Constructs GetWebACLRequest's fields from required parameters
 
 ``` purescript
 newtype GetWebACLResponse
-  = GetWebACLResponse { "WebACL" :: NullOrUndefined (WebACL) }
+  = GetWebACLResponse { "WebACL" :: Maybe (WebACL) }
 ```
 
 ##### Instances
@@ -3385,7 +3385,7 @@ Constructs GetWebACLResponse from required parameters
 #### `newGetWebACLResponse'`
 
 ``` purescript
-newGetWebACLResponse' :: ({ "WebACL" :: NullOrUndefined (WebACL) } -> { "WebACL" :: NullOrUndefined (WebACL) }) -> GetWebACLResponse
+newGetWebACLResponse' :: ({ "WebACL" :: Maybe (WebACL) } -> { "WebACL" :: Maybe (WebACL) }) -> GetWebACLResponse
 ```
 
 Constructs GetWebACLResponse's fields from required parameters
@@ -3428,7 +3428,7 @@ Constructs GetXssMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype GetXssMatchSetResponse
-  = GetXssMatchSetResponse { "XssMatchSet" :: NullOrUndefined (XssMatchSet) }
+  = GetXssMatchSetResponse { "XssMatchSet" :: Maybe (XssMatchSet) }
 ```
 
 <p>The response to a <a>GetXssMatchSet</a> request.</p>
@@ -3453,7 +3453,7 @@ Constructs GetXssMatchSetResponse from required parameters
 #### `newGetXssMatchSetResponse'`
 
 ``` purescript
-newGetXssMatchSetResponse' :: ({ "XssMatchSet" :: NullOrUndefined (XssMatchSet) } -> { "XssMatchSet" :: NullOrUndefined (XssMatchSet) }) -> GetXssMatchSetResponse
+newGetXssMatchSetResponse' :: ({ "XssMatchSet" :: Maybe (XssMatchSet) } -> { "XssMatchSet" :: Maybe (XssMatchSet) }) -> GetXssMatchSetResponse
 ```
 
 Constructs GetXssMatchSetResponse's fields from required parameters
@@ -3462,7 +3462,7 @@ Constructs GetXssMatchSetResponse's fields from required parameters
 
 ``` purescript
 newtype HTTPHeader
-  = HTTPHeader { "Name" :: NullOrUndefined (HeaderName), "Value" :: NullOrUndefined (HeaderValue) }
+  = HTTPHeader { "Name" :: Maybe (HeaderName), "Value" :: Maybe (HeaderValue) }
 ```
 
 <p>The response from a <a>GetSampledRequests</a> request includes an <code>HTTPHeader</code> complex type that appears as <code>Headers</code> in the response syntax. <code>HTTPHeader</code> contains the names and values of all of the headers that appear in one of the web requests that were returned by <code>GetSampledRequests</code>. </p>
@@ -3487,7 +3487,7 @@ Constructs HTTPHeader from required parameters
 #### `newHTTPHeader'`
 
 ``` purescript
-newHTTPHeader' :: ({ "Name" :: NullOrUndefined (HeaderName), "Value" :: NullOrUndefined (HeaderValue) } -> { "Name" :: NullOrUndefined (HeaderName), "Value" :: NullOrUndefined (HeaderValue) }) -> HTTPHeader
+newHTTPHeader' :: ({ "Name" :: Maybe (HeaderName), "Value" :: Maybe (HeaderValue) } -> { "Name" :: Maybe (HeaderName), "Value" :: Maybe (HeaderValue) }) -> HTTPHeader
 ```
 
 Constructs HTTPHeader's fields from required parameters
@@ -3528,7 +3528,7 @@ Encode HTTPMethod
 
 ``` purescript
 newtype HTTPRequest
-  = HTTPRequest { "ClientIP" :: NullOrUndefined (IPString), "Country" :: NullOrUndefined (Country), "URI" :: NullOrUndefined (URIString), "Method" :: NullOrUndefined (HTTPMethod), "HTTPVersion" :: NullOrUndefined (HTTPVersion), "Headers" :: NullOrUndefined (HTTPHeaders) }
+  = HTTPRequest { "ClientIP" :: Maybe (IPString), "Country" :: Maybe (Country), "URI" :: Maybe (URIString), "Method" :: Maybe (HTTPMethod), "HTTPVersion" :: Maybe (HTTPVersion), "Headers" :: Maybe (HTTPHeaders) }
 ```
 
 <p>The response from a <a>GetSampledRequests</a> request includes an <code>HTTPRequest</code> complex type that appears as <code>Request</code> in the response syntax. <code>HTTPRequest</code> contains information about one of the web requests that were returned by <code>GetSampledRequests</code>. </p>
@@ -3553,7 +3553,7 @@ Constructs HTTPRequest from required parameters
 #### `newHTTPRequest'`
 
 ``` purescript
-newHTTPRequest' :: ({ "ClientIP" :: NullOrUndefined (IPString), "Country" :: NullOrUndefined (Country), "URI" :: NullOrUndefined (URIString), "Method" :: NullOrUndefined (HTTPMethod), "HTTPVersion" :: NullOrUndefined (HTTPVersion), "Headers" :: NullOrUndefined (HTTPHeaders) } -> { "ClientIP" :: NullOrUndefined (IPString), "Country" :: NullOrUndefined (Country), "URI" :: NullOrUndefined (URIString), "Method" :: NullOrUndefined (HTTPMethod), "HTTPVersion" :: NullOrUndefined (HTTPVersion), "Headers" :: NullOrUndefined (HTTPHeaders) }) -> HTTPRequest
+newHTTPRequest' :: ({ "ClientIP" :: Maybe (IPString), "Country" :: Maybe (Country), "URI" :: Maybe (URIString), "Method" :: Maybe (HTTPMethod), "HTTPVersion" :: Maybe (HTTPVersion), "Headers" :: Maybe (HTTPHeaders) } -> { "ClientIP" :: Maybe (IPString), "Country" :: Maybe (Country), "URI" :: Maybe (URIString), "Method" :: Maybe (HTTPMethod), "HTTPVersion" :: Maybe (HTTPVersion), "Headers" :: Maybe (HTTPHeaders) }) -> HTTPRequest
 ```
 
 Constructs HTTPRequest's fields from required parameters
@@ -3610,7 +3610,7 @@ Encode HeaderValue
 
 ``` purescript
 newtype IPSet
-  = IPSet { "IPSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "IPSetDescriptors" :: IPSetDescriptors }
+  = IPSet { "IPSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "IPSetDescriptors" :: IPSetDescriptors }
 ```
 
 <p>Contains one or more IP addresses or blocks of IP addresses specified in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6.</p> <p>To specify an individual IP address, you specify the four-part IP address followed by a <code>/32</code>, for example, 192.0.2.0/31. To block a range of IP addresses, you can specify a <code>/128</code>, <code>/64</code>, <code>/56</code>, <code>/48</code>, <code>/32</code>, <code>/24</code>, <code>/16</code>, or <code>/8</code> CIDR. For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>. </p>
@@ -3635,7 +3635,7 @@ Constructs IPSet from required parameters
 #### `newIPSet'`
 
 ``` purescript
-newIPSet' :: IPSetDescriptors -> ResourceId -> ({ "IPSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "IPSetDescriptors" :: IPSetDescriptors } -> { "IPSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "IPSetDescriptors" :: IPSetDescriptors }) -> IPSet
+newIPSet' :: IPSetDescriptors -> ResourceId -> ({ "IPSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "IPSetDescriptors" :: IPSetDescriptors } -> { "IPSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "IPSetDescriptors" :: IPSetDescriptors }) -> IPSet
 ```
 
 Constructs IPSet's fields from required parameters
@@ -3842,7 +3842,7 @@ Encode IPString
 
 ``` purescript
 newtype ListActivatedRulesInRuleGroupRequest
-  = ListActivatedRulesInRuleGroupRequest { "RuleGroupId" :: NullOrUndefined (ResourceId), "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListActivatedRulesInRuleGroupRequest { "RuleGroupId" :: Maybe (ResourceId), "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -3865,7 +3865,7 @@ Constructs ListActivatedRulesInRuleGroupRequest from required parameters
 #### `newListActivatedRulesInRuleGroupRequest'`
 
 ``` purescript
-newListActivatedRulesInRuleGroupRequest' :: ({ "RuleGroupId" :: NullOrUndefined (ResourceId), "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "RuleGroupId" :: NullOrUndefined (ResourceId), "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListActivatedRulesInRuleGroupRequest
+newListActivatedRulesInRuleGroupRequest' :: ({ "RuleGroupId" :: Maybe (ResourceId), "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "RuleGroupId" :: Maybe (ResourceId), "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListActivatedRulesInRuleGroupRequest
 ```
 
 Constructs ListActivatedRulesInRuleGroupRequest's fields from required parameters
@@ -3874,7 +3874,7 @@ Constructs ListActivatedRulesInRuleGroupRequest's fields from required parameter
 
 ``` purescript
 newtype ListActivatedRulesInRuleGroupResponse
-  = ListActivatedRulesInRuleGroupResponse { "NextMarker" :: NullOrUndefined (NextMarker), "ActivatedRules" :: NullOrUndefined (ActivatedRules) }
+  = ListActivatedRulesInRuleGroupResponse { "NextMarker" :: Maybe (NextMarker), "ActivatedRules" :: Maybe (ActivatedRules) }
 ```
 
 ##### Instances
@@ -3897,7 +3897,7 @@ Constructs ListActivatedRulesInRuleGroupResponse from required parameters
 #### `newListActivatedRulesInRuleGroupResponse'`
 
 ``` purescript
-newListActivatedRulesInRuleGroupResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "ActivatedRules" :: NullOrUndefined (ActivatedRules) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "ActivatedRules" :: NullOrUndefined (ActivatedRules) }) -> ListActivatedRulesInRuleGroupResponse
+newListActivatedRulesInRuleGroupResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "ActivatedRules" :: Maybe (ActivatedRules) } -> { "NextMarker" :: Maybe (NextMarker), "ActivatedRules" :: Maybe (ActivatedRules) }) -> ListActivatedRulesInRuleGroupResponse
 ```
 
 Constructs ListActivatedRulesInRuleGroupResponse's fields from required parameters
@@ -3906,7 +3906,7 @@ Constructs ListActivatedRulesInRuleGroupResponse's fields from required paramete
 
 ``` purescript
 newtype ListByteMatchSetsRequest
-  = ListByteMatchSetsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListByteMatchSetsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -3929,7 +3929,7 @@ Constructs ListByteMatchSetsRequest from required parameters
 #### `newListByteMatchSetsRequest'`
 
 ``` purescript
-newListByteMatchSetsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListByteMatchSetsRequest
+newListByteMatchSetsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListByteMatchSetsRequest
 ```
 
 Constructs ListByteMatchSetsRequest's fields from required parameters
@@ -3938,7 +3938,7 @@ Constructs ListByteMatchSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListByteMatchSetsResponse
-  = ListByteMatchSetsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "ByteMatchSets" :: NullOrUndefined (ByteMatchSetSummaries) }
+  = ListByteMatchSetsResponse { "NextMarker" :: Maybe (NextMarker), "ByteMatchSets" :: Maybe (ByteMatchSetSummaries) }
 ```
 
 ##### Instances
@@ -3961,7 +3961,7 @@ Constructs ListByteMatchSetsResponse from required parameters
 #### `newListByteMatchSetsResponse'`
 
 ``` purescript
-newListByteMatchSetsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "ByteMatchSets" :: NullOrUndefined (ByteMatchSetSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "ByteMatchSets" :: NullOrUndefined (ByteMatchSetSummaries) }) -> ListByteMatchSetsResponse
+newListByteMatchSetsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "ByteMatchSets" :: Maybe (ByteMatchSetSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "ByteMatchSets" :: Maybe (ByteMatchSetSummaries) }) -> ListByteMatchSetsResponse
 ```
 
 Constructs ListByteMatchSetsResponse's fields from required parameters
@@ -3970,7 +3970,7 @@ Constructs ListByteMatchSetsResponse's fields from required parameters
 
 ``` purescript
 newtype ListGeoMatchSetsRequest
-  = ListGeoMatchSetsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListGeoMatchSetsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -3993,7 +3993,7 @@ Constructs ListGeoMatchSetsRequest from required parameters
 #### `newListGeoMatchSetsRequest'`
 
 ``` purescript
-newListGeoMatchSetsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListGeoMatchSetsRequest
+newListGeoMatchSetsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListGeoMatchSetsRequest
 ```
 
 Constructs ListGeoMatchSetsRequest's fields from required parameters
@@ -4002,7 +4002,7 @@ Constructs ListGeoMatchSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListGeoMatchSetsResponse
-  = ListGeoMatchSetsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "GeoMatchSets" :: NullOrUndefined (GeoMatchSetSummaries) }
+  = ListGeoMatchSetsResponse { "NextMarker" :: Maybe (NextMarker), "GeoMatchSets" :: Maybe (GeoMatchSetSummaries) }
 ```
 
 ##### Instances
@@ -4025,7 +4025,7 @@ Constructs ListGeoMatchSetsResponse from required parameters
 #### `newListGeoMatchSetsResponse'`
 
 ``` purescript
-newListGeoMatchSetsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "GeoMatchSets" :: NullOrUndefined (GeoMatchSetSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "GeoMatchSets" :: NullOrUndefined (GeoMatchSetSummaries) }) -> ListGeoMatchSetsResponse
+newListGeoMatchSetsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "GeoMatchSets" :: Maybe (GeoMatchSetSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "GeoMatchSets" :: Maybe (GeoMatchSetSummaries) }) -> ListGeoMatchSetsResponse
 ```
 
 Constructs ListGeoMatchSetsResponse's fields from required parameters
@@ -4034,7 +4034,7 @@ Constructs ListGeoMatchSetsResponse's fields from required parameters
 
 ``` purescript
 newtype ListIPSetsRequest
-  = ListIPSetsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListIPSetsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -4057,7 +4057,7 @@ Constructs ListIPSetsRequest from required parameters
 #### `newListIPSetsRequest'`
 
 ``` purescript
-newListIPSetsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListIPSetsRequest
+newListIPSetsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListIPSetsRequest
 ```
 
 Constructs ListIPSetsRequest's fields from required parameters
@@ -4066,7 +4066,7 @@ Constructs ListIPSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListIPSetsResponse
-  = ListIPSetsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "IPSets" :: NullOrUndefined (IPSetSummaries) }
+  = ListIPSetsResponse { "NextMarker" :: Maybe (NextMarker), "IPSets" :: Maybe (IPSetSummaries) }
 ```
 
 ##### Instances
@@ -4089,7 +4089,7 @@ Constructs ListIPSetsResponse from required parameters
 #### `newListIPSetsResponse'`
 
 ``` purescript
-newListIPSetsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "IPSets" :: NullOrUndefined (IPSetSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "IPSets" :: NullOrUndefined (IPSetSummaries) }) -> ListIPSetsResponse
+newListIPSetsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "IPSets" :: Maybe (IPSetSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "IPSets" :: Maybe (IPSetSummaries) }) -> ListIPSetsResponse
 ```
 
 Constructs ListIPSetsResponse's fields from required parameters
@@ -4098,7 +4098,7 @@ Constructs ListIPSetsResponse's fields from required parameters
 
 ``` purescript
 newtype ListRateBasedRulesRequest
-  = ListRateBasedRulesRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListRateBasedRulesRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -4121,7 +4121,7 @@ Constructs ListRateBasedRulesRequest from required parameters
 #### `newListRateBasedRulesRequest'`
 
 ``` purescript
-newListRateBasedRulesRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListRateBasedRulesRequest
+newListRateBasedRulesRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListRateBasedRulesRequest
 ```
 
 Constructs ListRateBasedRulesRequest's fields from required parameters
@@ -4130,7 +4130,7 @@ Constructs ListRateBasedRulesRequest's fields from required parameters
 
 ``` purescript
 newtype ListRateBasedRulesResponse
-  = ListRateBasedRulesResponse { "NextMarker" :: NullOrUndefined (NextMarker), "Rules" :: NullOrUndefined (RuleSummaries) }
+  = ListRateBasedRulesResponse { "NextMarker" :: Maybe (NextMarker), "Rules" :: Maybe (RuleSummaries) }
 ```
 
 ##### Instances
@@ -4153,7 +4153,7 @@ Constructs ListRateBasedRulesResponse from required parameters
 #### `newListRateBasedRulesResponse'`
 
 ``` purescript
-newListRateBasedRulesResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Rules" :: NullOrUndefined (RuleSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Rules" :: NullOrUndefined (RuleSummaries) }) -> ListRateBasedRulesResponse
+newListRateBasedRulesResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "Rules" :: Maybe (RuleSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "Rules" :: Maybe (RuleSummaries) }) -> ListRateBasedRulesResponse
 ```
 
 Constructs ListRateBasedRulesResponse's fields from required parameters
@@ -4162,7 +4162,7 @@ Constructs ListRateBasedRulesResponse's fields from required parameters
 
 ``` purescript
 newtype ListRegexMatchSetsRequest
-  = ListRegexMatchSetsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListRegexMatchSetsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -4185,7 +4185,7 @@ Constructs ListRegexMatchSetsRequest from required parameters
 #### `newListRegexMatchSetsRequest'`
 
 ``` purescript
-newListRegexMatchSetsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListRegexMatchSetsRequest
+newListRegexMatchSetsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListRegexMatchSetsRequest
 ```
 
 Constructs ListRegexMatchSetsRequest's fields from required parameters
@@ -4194,7 +4194,7 @@ Constructs ListRegexMatchSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListRegexMatchSetsResponse
-  = ListRegexMatchSetsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "RegexMatchSets" :: NullOrUndefined (RegexMatchSetSummaries) }
+  = ListRegexMatchSetsResponse { "NextMarker" :: Maybe (NextMarker), "RegexMatchSets" :: Maybe (RegexMatchSetSummaries) }
 ```
 
 ##### Instances
@@ -4217,7 +4217,7 @@ Constructs ListRegexMatchSetsResponse from required parameters
 #### `newListRegexMatchSetsResponse'`
 
 ``` purescript
-newListRegexMatchSetsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "RegexMatchSets" :: NullOrUndefined (RegexMatchSetSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "RegexMatchSets" :: NullOrUndefined (RegexMatchSetSummaries) }) -> ListRegexMatchSetsResponse
+newListRegexMatchSetsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "RegexMatchSets" :: Maybe (RegexMatchSetSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "RegexMatchSets" :: Maybe (RegexMatchSetSummaries) }) -> ListRegexMatchSetsResponse
 ```
 
 Constructs ListRegexMatchSetsResponse's fields from required parameters
@@ -4226,7 +4226,7 @@ Constructs ListRegexMatchSetsResponse's fields from required parameters
 
 ``` purescript
 newtype ListRegexPatternSetsRequest
-  = ListRegexPatternSetsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListRegexPatternSetsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -4249,7 +4249,7 @@ Constructs ListRegexPatternSetsRequest from required parameters
 #### `newListRegexPatternSetsRequest'`
 
 ``` purescript
-newListRegexPatternSetsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListRegexPatternSetsRequest
+newListRegexPatternSetsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListRegexPatternSetsRequest
 ```
 
 Constructs ListRegexPatternSetsRequest's fields from required parameters
@@ -4258,7 +4258,7 @@ Constructs ListRegexPatternSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListRegexPatternSetsResponse
-  = ListRegexPatternSetsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "RegexPatternSets" :: NullOrUndefined (RegexPatternSetSummaries) }
+  = ListRegexPatternSetsResponse { "NextMarker" :: Maybe (NextMarker), "RegexPatternSets" :: Maybe (RegexPatternSetSummaries) }
 ```
 
 ##### Instances
@@ -4281,7 +4281,7 @@ Constructs ListRegexPatternSetsResponse from required parameters
 #### `newListRegexPatternSetsResponse'`
 
 ``` purescript
-newListRegexPatternSetsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "RegexPatternSets" :: NullOrUndefined (RegexPatternSetSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "RegexPatternSets" :: NullOrUndefined (RegexPatternSetSummaries) }) -> ListRegexPatternSetsResponse
+newListRegexPatternSetsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "RegexPatternSets" :: Maybe (RegexPatternSetSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "RegexPatternSets" :: Maybe (RegexPatternSetSummaries) }) -> ListRegexPatternSetsResponse
 ```
 
 Constructs ListRegexPatternSetsResponse's fields from required parameters
@@ -4322,7 +4322,7 @@ Constructs ListResourcesForWebACLRequest's fields from required parameters
 
 ``` purescript
 newtype ListResourcesForWebACLResponse
-  = ListResourcesForWebACLResponse { "ResourceArns" :: NullOrUndefined (ResourceArns) }
+  = ListResourcesForWebACLResponse { "ResourceArns" :: Maybe (ResourceArns) }
 ```
 
 ##### Instances
@@ -4345,7 +4345,7 @@ Constructs ListResourcesForWebACLResponse from required parameters
 #### `newListResourcesForWebACLResponse'`
 
 ``` purescript
-newListResourcesForWebACLResponse' :: ({ "ResourceArns" :: NullOrUndefined (ResourceArns) } -> { "ResourceArns" :: NullOrUndefined (ResourceArns) }) -> ListResourcesForWebACLResponse
+newListResourcesForWebACLResponse' :: ({ "ResourceArns" :: Maybe (ResourceArns) } -> { "ResourceArns" :: Maybe (ResourceArns) }) -> ListResourcesForWebACLResponse
 ```
 
 Constructs ListResourcesForWebACLResponse's fields from required parameters
@@ -4354,7 +4354,7 @@ Constructs ListResourcesForWebACLResponse's fields from required parameters
 
 ``` purescript
 newtype ListRuleGroupsRequest
-  = ListRuleGroupsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListRuleGroupsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -4377,7 +4377,7 @@ Constructs ListRuleGroupsRequest from required parameters
 #### `newListRuleGroupsRequest'`
 
 ``` purescript
-newListRuleGroupsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListRuleGroupsRequest
+newListRuleGroupsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListRuleGroupsRequest
 ```
 
 Constructs ListRuleGroupsRequest's fields from required parameters
@@ -4386,7 +4386,7 @@ Constructs ListRuleGroupsRequest's fields from required parameters
 
 ``` purescript
 newtype ListRuleGroupsResponse
-  = ListRuleGroupsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "RuleGroups" :: NullOrUndefined (RuleGroupSummaries) }
+  = ListRuleGroupsResponse { "NextMarker" :: Maybe (NextMarker), "RuleGroups" :: Maybe (RuleGroupSummaries) }
 ```
 
 ##### Instances
@@ -4409,7 +4409,7 @@ Constructs ListRuleGroupsResponse from required parameters
 #### `newListRuleGroupsResponse'`
 
 ``` purescript
-newListRuleGroupsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "RuleGroups" :: NullOrUndefined (RuleGroupSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "RuleGroups" :: NullOrUndefined (RuleGroupSummaries) }) -> ListRuleGroupsResponse
+newListRuleGroupsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "RuleGroups" :: Maybe (RuleGroupSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "RuleGroups" :: Maybe (RuleGroupSummaries) }) -> ListRuleGroupsResponse
 ```
 
 Constructs ListRuleGroupsResponse's fields from required parameters
@@ -4418,7 +4418,7 @@ Constructs ListRuleGroupsResponse's fields from required parameters
 
 ``` purescript
 newtype ListRulesRequest
-  = ListRulesRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListRulesRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -4441,7 +4441,7 @@ Constructs ListRulesRequest from required parameters
 #### `newListRulesRequest'`
 
 ``` purescript
-newListRulesRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListRulesRequest
+newListRulesRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListRulesRequest
 ```
 
 Constructs ListRulesRequest's fields from required parameters
@@ -4450,7 +4450,7 @@ Constructs ListRulesRequest's fields from required parameters
 
 ``` purescript
 newtype ListRulesResponse
-  = ListRulesResponse { "NextMarker" :: NullOrUndefined (NextMarker), "Rules" :: NullOrUndefined (RuleSummaries) }
+  = ListRulesResponse { "NextMarker" :: Maybe (NextMarker), "Rules" :: Maybe (RuleSummaries) }
 ```
 
 ##### Instances
@@ -4473,7 +4473,7 @@ Constructs ListRulesResponse from required parameters
 #### `newListRulesResponse'`
 
 ``` purescript
-newListRulesResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Rules" :: NullOrUndefined (RuleSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Rules" :: NullOrUndefined (RuleSummaries) }) -> ListRulesResponse
+newListRulesResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "Rules" :: Maybe (RuleSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "Rules" :: Maybe (RuleSummaries) }) -> ListRulesResponse
 ```
 
 Constructs ListRulesResponse's fields from required parameters
@@ -4482,7 +4482,7 @@ Constructs ListRulesResponse's fields from required parameters
 
 ``` purescript
 newtype ListSizeConstraintSetsRequest
-  = ListSizeConstraintSetsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListSizeConstraintSetsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -4505,7 +4505,7 @@ Constructs ListSizeConstraintSetsRequest from required parameters
 #### `newListSizeConstraintSetsRequest'`
 
 ``` purescript
-newListSizeConstraintSetsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListSizeConstraintSetsRequest
+newListSizeConstraintSetsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListSizeConstraintSetsRequest
 ```
 
 Constructs ListSizeConstraintSetsRequest's fields from required parameters
@@ -4514,7 +4514,7 @@ Constructs ListSizeConstraintSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListSizeConstraintSetsResponse
-  = ListSizeConstraintSetsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "SizeConstraintSets" :: NullOrUndefined (SizeConstraintSetSummaries) }
+  = ListSizeConstraintSetsResponse { "NextMarker" :: Maybe (NextMarker), "SizeConstraintSets" :: Maybe (SizeConstraintSetSummaries) }
 ```
 
 ##### Instances
@@ -4537,7 +4537,7 @@ Constructs ListSizeConstraintSetsResponse from required parameters
 #### `newListSizeConstraintSetsResponse'`
 
 ``` purescript
-newListSizeConstraintSetsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "SizeConstraintSets" :: NullOrUndefined (SizeConstraintSetSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "SizeConstraintSets" :: NullOrUndefined (SizeConstraintSetSummaries) }) -> ListSizeConstraintSetsResponse
+newListSizeConstraintSetsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "SizeConstraintSets" :: Maybe (SizeConstraintSetSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "SizeConstraintSets" :: Maybe (SizeConstraintSetSummaries) }) -> ListSizeConstraintSetsResponse
 ```
 
 Constructs ListSizeConstraintSetsResponse's fields from required parameters
@@ -4546,7 +4546,7 @@ Constructs ListSizeConstraintSetsResponse's fields from required parameters
 
 ``` purescript
 newtype ListSqlInjectionMatchSetsRequest
-  = ListSqlInjectionMatchSetsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListSqlInjectionMatchSetsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 <p>A request to list the <a>SqlInjectionMatchSet</a> objects created by the current AWS account.</p>
@@ -4571,7 +4571,7 @@ Constructs ListSqlInjectionMatchSetsRequest from required parameters
 #### `newListSqlInjectionMatchSetsRequest'`
 
 ``` purescript
-newListSqlInjectionMatchSetsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListSqlInjectionMatchSetsRequest
+newListSqlInjectionMatchSetsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListSqlInjectionMatchSetsRequest
 ```
 
 Constructs ListSqlInjectionMatchSetsRequest's fields from required parameters
@@ -4580,7 +4580,7 @@ Constructs ListSqlInjectionMatchSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListSqlInjectionMatchSetsResponse
-  = ListSqlInjectionMatchSetsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "SqlInjectionMatchSets" :: NullOrUndefined (SqlInjectionMatchSetSummaries) }
+  = ListSqlInjectionMatchSetsResponse { "NextMarker" :: Maybe (NextMarker), "SqlInjectionMatchSets" :: Maybe (SqlInjectionMatchSetSummaries) }
 ```
 
 <p>The response to a <a>ListSqlInjectionMatchSets</a> request.</p>
@@ -4605,7 +4605,7 @@ Constructs ListSqlInjectionMatchSetsResponse from required parameters
 #### `newListSqlInjectionMatchSetsResponse'`
 
 ``` purescript
-newListSqlInjectionMatchSetsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "SqlInjectionMatchSets" :: NullOrUndefined (SqlInjectionMatchSetSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "SqlInjectionMatchSets" :: NullOrUndefined (SqlInjectionMatchSetSummaries) }) -> ListSqlInjectionMatchSetsResponse
+newListSqlInjectionMatchSetsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "SqlInjectionMatchSets" :: Maybe (SqlInjectionMatchSetSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "SqlInjectionMatchSets" :: Maybe (SqlInjectionMatchSetSummaries) }) -> ListSqlInjectionMatchSetsResponse
 ```
 
 Constructs ListSqlInjectionMatchSetsResponse's fields from required parameters
@@ -4614,7 +4614,7 @@ Constructs ListSqlInjectionMatchSetsResponse's fields from required parameters
 
 ``` purescript
 newtype ListSubscribedRuleGroupsRequest
-  = ListSubscribedRuleGroupsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListSubscribedRuleGroupsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -4637,7 +4637,7 @@ Constructs ListSubscribedRuleGroupsRequest from required parameters
 #### `newListSubscribedRuleGroupsRequest'`
 
 ``` purescript
-newListSubscribedRuleGroupsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListSubscribedRuleGroupsRequest
+newListSubscribedRuleGroupsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListSubscribedRuleGroupsRequest
 ```
 
 Constructs ListSubscribedRuleGroupsRequest's fields from required parameters
@@ -4646,7 +4646,7 @@ Constructs ListSubscribedRuleGroupsRequest's fields from required parameters
 
 ``` purescript
 newtype ListSubscribedRuleGroupsResponse
-  = ListSubscribedRuleGroupsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "RuleGroups" :: NullOrUndefined (SubscribedRuleGroupSummaries) }
+  = ListSubscribedRuleGroupsResponse { "NextMarker" :: Maybe (NextMarker), "RuleGroups" :: Maybe (SubscribedRuleGroupSummaries) }
 ```
 
 ##### Instances
@@ -4669,7 +4669,7 @@ Constructs ListSubscribedRuleGroupsResponse from required parameters
 #### `newListSubscribedRuleGroupsResponse'`
 
 ``` purescript
-newListSubscribedRuleGroupsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "RuleGroups" :: NullOrUndefined (SubscribedRuleGroupSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "RuleGroups" :: NullOrUndefined (SubscribedRuleGroupSummaries) }) -> ListSubscribedRuleGroupsResponse
+newListSubscribedRuleGroupsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "RuleGroups" :: Maybe (SubscribedRuleGroupSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "RuleGroups" :: Maybe (SubscribedRuleGroupSummaries) }) -> ListSubscribedRuleGroupsResponse
 ```
 
 Constructs ListSubscribedRuleGroupsResponse's fields from required parameters
@@ -4678,7 +4678,7 @@ Constructs ListSubscribedRuleGroupsResponse's fields from required parameters
 
 ``` purescript
 newtype ListWebACLsRequest
-  = ListWebACLsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListWebACLsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 ##### Instances
@@ -4701,7 +4701,7 @@ Constructs ListWebACLsRequest from required parameters
 #### `newListWebACLsRequest'`
 
 ``` purescript
-newListWebACLsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListWebACLsRequest
+newListWebACLsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListWebACLsRequest
 ```
 
 Constructs ListWebACLsRequest's fields from required parameters
@@ -4710,7 +4710,7 @@ Constructs ListWebACLsRequest's fields from required parameters
 
 ``` purescript
 newtype ListWebACLsResponse
-  = ListWebACLsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "WebACLs" :: NullOrUndefined (WebACLSummaries) }
+  = ListWebACLsResponse { "NextMarker" :: Maybe (NextMarker), "WebACLs" :: Maybe (WebACLSummaries) }
 ```
 
 ##### Instances
@@ -4733,7 +4733,7 @@ Constructs ListWebACLsResponse from required parameters
 #### `newListWebACLsResponse'`
 
 ``` purescript
-newListWebACLsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "WebACLs" :: NullOrUndefined (WebACLSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "WebACLs" :: NullOrUndefined (WebACLSummaries) }) -> ListWebACLsResponse
+newListWebACLsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "WebACLs" :: Maybe (WebACLSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "WebACLs" :: Maybe (WebACLSummaries) }) -> ListWebACLsResponse
 ```
 
 Constructs ListWebACLsResponse's fields from required parameters
@@ -4742,7 +4742,7 @@ Constructs ListWebACLsResponse's fields from required parameters
 
 ``` purescript
 newtype ListXssMatchSetsRequest
-  = ListXssMatchSetsRequest { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }
+  = ListXssMatchSetsRequest { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }
 ```
 
 <p>A request to list the <a>XssMatchSet</a> objects created by the current AWS account.</p>
@@ -4767,7 +4767,7 @@ Constructs ListXssMatchSetsRequest from required parameters
 #### `newListXssMatchSetsRequest'`
 
 ``` purescript
-newListXssMatchSetsRequest' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "Limit" :: NullOrUndefined (PaginationLimit) }) -> ListXssMatchSetsRequest
+newListXssMatchSetsRequest' :: ({ "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) } -> { "NextMarker" :: Maybe (NextMarker), "Limit" :: Maybe (PaginationLimit) }) -> ListXssMatchSetsRequest
 ```
 
 Constructs ListXssMatchSetsRequest's fields from required parameters
@@ -4776,7 +4776,7 @@ Constructs ListXssMatchSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListXssMatchSetsResponse
-  = ListXssMatchSetsResponse { "NextMarker" :: NullOrUndefined (NextMarker), "XssMatchSets" :: NullOrUndefined (XssMatchSetSummaries) }
+  = ListXssMatchSetsResponse { "NextMarker" :: Maybe (NextMarker), "XssMatchSets" :: Maybe (XssMatchSetSummaries) }
 ```
 
 <p>The response to a <a>ListXssMatchSets</a> request.</p>
@@ -4801,7 +4801,7 @@ Constructs ListXssMatchSetsResponse from required parameters
 #### `newListXssMatchSetsResponse'`
 
 ``` purescript
-newListXssMatchSetsResponse' :: ({ "NextMarker" :: NullOrUndefined (NextMarker), "XssMatchSets" :: NullOrUndefined (XssMatchSetSummaries) } -> { "NextMarker" :: NullOrUndefined (NextMarker), "XssMatchSets" :: NullOrUndefined (XssMatchSetSummaries) }) -> ListXssMatchSetsResponse
+newListXssMatchSetsResponse' :: ({ "NextMarker" :: Maybe (NextMarker), "XssMatchSets" :: Maybe (XssMatchSetSummaries) } -> { "NextMarker" :: Maybe (NextMarker), "XssMatchSets" :: Maybe (XssMatchSetSummaries) }) -> ListXssMatchSetsResponse
 ```
 
 Constructs ListXssMatchSetsResponse's fields from required parameters
@@ -5148,7 +5148,7 @@ Encode PutPermissionPolicyResponse
 
 ``` purescript
 newtype RateBasedRule
-  = RateBasedRule { "RuleId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName), "MatchPredicates" :: Predicates, "RateKey" :: RateKey, "RateLimit" :: RateLimit }
+  = RateBasedRule { "RuleId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName), "MatchPredicates" :: Predicates, "RateKey" :: RateKey, "RateLimit" :: RateLimit }
 ```
 
 <p>A <code>RateBasedRule</code> is identical to a regular <a>Rule</a>, with one addition: a <code>RateBasedRule</code> counts the number of requests that arrive from a specified IP address every five minutes. For example, based on recent requests that you've seen from an attacker, you might create a <code>RateBasedRule</code> that includes the following conditions: </p> <ul> <li> <p>The requests come from 192.0.2.44.</p> </li> <li> <p>They contain the value <code>BadBot</code> in the <code>User-Agent</code> header.</p> </li> </ul> <p>In the rule, you also define the rate limit as 15,000.</p> <p>Requests that meet both of these conditions and exceed 15,000 requests every five minutes trigger the rule's action (block or count), which is defined in the web ACL.</p>
@@ -5173,7 +5173,7 @@ Constructs RateBasedRule from required parameters
 #### `newRateBasedRule'`
 
 ``` purescript
-newRateBasedRule' :: Predicates -> RateKey -> RateLimit -> ResourceId -> ({ "RuleId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName), "MatchPredicates" :: Predicates, "RateKey" :: RateKey, "RateLimit" :: RateLimit } -> { "RuleId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName), "MatchPredicates" :: Predicates, "RateKey" :: RateKey, "RateLimit" :: RateLimit }) -> RateBasedRule
+newRateBasedRule' :: Predicates -> RateKey -> RateLimit -> ResourceId -> ({ "RuleId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName), "MatchPredicates" :: Predicates, "RateKey" :: RateKey, "RateLimit" :: RateLimit } -> { "RuleId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName), "MatchPredicates" :: Predicates, "RateKey" :: RateKey, "RateLimit" :: RateLimit }) -> RateBasedRule
 ```
 
 Constructs RateBasedRule's fields from required parameters
@@ -5214,7 +5214,7 @@ Encode RateLimit
 
 ``` purescript
 newtype RegexMatchSet
-  = RegexMatchSet { "RegexMatchSetId" :: NullOrUndefined (ResourceId), "Name" :: NullOrUndefined (ResourceName), "RegexMatchTuples" :: NullOrUndefined (RegexMatchTuples) }
+  = RegexMatchSet { "RegexMatchSetId" :: Maybe (ResourceId), "Name" :: Maybe (ResourceName), "RegexMatchTuples" :: Maybe (RegexMatchTuples) }
 ```
 
 <p>In a <a>GetRegexMatchSet</a> request, <code>RegexMatchSet</code> is a complex type that contains the <code>RegexMatchSetId</code> and <code>Name</code> of a <code>RegexMatchSet</code>, and the values that you specified when you updated the <code>RegexMatchSet</code>.</p> <p> The values are contained in a <code>RegexMatchTuple</code> object, which specify the parts of web requests that you want AWS WAF to inspect and the values that you want AWS WAF to search for. If a <code>RegexMatchSet</code> contains more than one <code>RegexMatchTuple</code> object, a request needs to match the settings in only one <code>ByteMatchTuple</code> to be considered a match.</p>
@@ -5239,7 +5239,7 @@ Constructs RegexMatchSet from required parameters
 #### `newRegexMatchSet'`
 
 ``` purescript
-newRegexMatchSet' :: ({ "RegexMatchSetId" :: NullOrUndefined (ResourceId), "Name" :: NullOrUndefined (ResourceName), "RegexMatchTuples" :: NullOrUndefined (RegexMatchTuples) } -> { "RegexMatchSetId" :: NullOrUndefined (ResourceId), "Name" :: NullOrUndefined (ResourceName), "RegexMatchTuples" :: NullOrUndefined (RegexMatchTuples) }) -> RegexMatchSet
+newRegexMatchSet' :: ({ "RegexMatchSetId" :: Maybe (ResourceId), "Name" :: Maybe (ResourceName), "RegexMatchTuples" :: Maybe (RegexMatchTuples) } -> { "RegexMatchSetId" :: Maybe (ResourceId), "Name" :: Maybe (ResourceName), "RegexMatchTuples" :: Maybe (RegexMatchTuples) }) -> RegexMatchSet
 ```
 
 Constructs RegexMatchSet's fields from required parameters
@@ -5398,7 +5398,7 @@ Encode RegexMatchTuples
 
 ``` purescript
 newtype RegexPatternSet
-  = RegexPatternSet { "RegexPatternSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "RegexPatternStrings" :: RegexPatternStrings }
+  = RegexPatternSet { "RegexPatternSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "RegexPatternStrings" :: RegexPatternStrings }
 ```
 
 <p>The <code>RegexPatternSet</code> specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
@@ -5423,7 +5423,7 @@ Constructs RegexPatternSet from required parameters
 #### `newRegexPatternSet'`
 
 ``` purescript
-newRegexPatternSet' :: ResourceId -> RegexPatternStrings -> ({ "RegexPatternSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "RegexPatternStrings" :: RegexPatternStrings } -> { "RegexPatternSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "RegexPatternStrings" :: RegexPatternStrings }) -> RegexPatternSet
+newRegexPatternSet' :: ResourceId -> RegexPatternStrings -> ({ "RegexPatternSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "RegexPatternStrings" :: RegexPatternStrings } -> { "RegexPatternSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "RegexPatternStrings" :: RegexPatternStrings }) -> RegexPatternSet
 ```
 
 Constructs RegexPatternSet's fields from required parameters
@@ -5628,7 +5628,7 @@ Encode ResourceName
 
 ``` purescript
 newtype Rule
-  = Rule { "RuleId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName), "Predicates" :: Predicates }
+  = Rule { "RuleId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName), "Predicates" :: Predicates }
 ```
 
 <p>A combination of <a>ByteMatchSet</a>, <a>IPSet</a>, and/or <a>SqlInjectionMatchSet</a> objects that identify the web requests that you want to allow, block, or count. For example, you might create a <code>Rule</code> that includes the following predicates:</p> <ul> <li> <p>An <code>IPSet</code> that causes AWS WAF to search for web requests that originate from the IP address <code>192.0.2.44</code> </p> </li> <li> <p>A <code>ByteMatchSet</code> that causes AWS WAF to search for web requests for which the value of the <code>User-Agent</code> header is <code>BadBot</code>.</p> </li> </ul> <p>To match the settings in this <code>Rule</code>, a request must originate from <code>192.0.2.44</code> AND include a <code>User-Agent</code> header for which the value is <code>BadBot</code>.</p>
@@ -5653,7 +5653,7 @@ Constructs Rule from required parameters
 #### `newRule'`
 
 ``` purescript
-newRule' :: Predicates -> ResourceId -> ({ "RuleId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName), "Predicates" :: Predicates } -> { "RuleId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName), "Predicates" :: Predicates }) -> Rule
+newRule' :: Predicates -> ResourceId -> ({ "RuleId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName), "Predicates" :: Predicates } -> { "RuleId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName), "Predicates" :: Predicates }) -> Rule
 ```
 
 Constructs Rule's fields from required parameters
@@ -5662,7 +5662,7 @@ Constructs Rule's fields from required parameters
 
 ``` purescript
 newtype RuleGroup
-  = RuleGroup { "RuleGroupId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName) }
+  = RuleGroup { "RuleGroupId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName) }
 ```
 
 <p>A collection of predefined rules that you can add to a web ACL.</p> <p>Rule groups are subject to the following limits:</p> <ul> <li> <p>Three rule groups per account. You can request an increase to this limit by contacting customer support.</p> </li> <li> <p>One rule group per web ACL.</p> </li> <li> <p>Ten rules per rule group.</p> </li> </ul>
@@ -5687,7 +5687,7 @@ Constructs RuleGroup from required parameters
 #### `newRuleGroup'`
 
 ``` purescript
-newRuleGroup' :: ResourceId -> ({ "RuleGroupId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName) } -> { "RuleGroupId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName) }) -> RuleGroup
+newRuleGroup' :: ResourceId -> ({ "RuleGroupId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName) } -> { "RuleGroupId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName) }) -> RuleGroup
 ```
 
 Constructs RuleGroup's fields from required parameters
@@ -5928,7 +5928,7 @@ Encode SampleWeight
 
 ``` purescript
 newtype SampledHTTPRequest
-  = SampledHTTPRequest { "Request" :: HTTPRequest, "Weight" :: SampleWeight, "Timestamp" :: NullOrUndefined (Timestamp), "Action" :: NullOrUndefined (Action), "RuleWithinRuleGroup" :: NullOrUndefined (ResourceId) }
+  = SampledHTTPRequest { "Request" :: HTTPRequest, "Weight" :: SampleWeight, "Timestamp" :: Maybe (Timestamp), "Action" :: Maybe (Action), "RuleWithinRuleGroup" :: Maybe (ResourceId) }
 ```
 
 <p>The response from a <a>GetSampledRequests</a> request includes a <code>SampledHTTPRequests</code> complex type that appears as <code>SampledRequests</code> in the response syntax. <code>SampledHTTPRequests</code> contains one <code>SampledHTTPRequest</code> object for each web request that is returned by <code>GetSampledRequests</code>.</p>
@@ -5953,7 +5953,7 @@ Constructs SampledHTTPRequest from required parameters
 #### `newSampledHTTPRequest'`
 
 ``` purescript
-newSampledHTTPRequest' :: HTTPRequest -> SampleWeight -> ({ "Request" :: HTTPRequest, "Weight" :: SampleWeight, "Timestamp" :: NullOrUndefined (Timestamp), "Action" :: NullOrUndefined (Action), "RuleWithinRuleGroup" :: NullOrUndefined (ResourceId) } -> { "Request" :: HTTPRequest, "Weight" :: SampleWeight, "Timestamp" :: NullOrUndefined (Timestamp), "Action" :: NullOrUndefined (Action), "RuleWithinRuleGroup" :: NullOrUndefined (ResourceId) }) -> SampledHTTPRequest
+newSampledHTTPRequest' :: HTTPRequest -> SampleWeight -> ({ "Request" :: HTTPRequest, "Weight" :: SampleWeight, "Timestamp" :: Maybe (Timestamp), "Action" :: Maybe (Action), "RuleWithinRuleGroup" :: Maybe (ResourceId) } -> { "Request" :: HTTPRequest, "Weight" :: SampleWeight, "Timestamp" :: Maybe (Timestamp), "Action" :: Maybe (Action), "RuleWithinRuleGroup" :: Maybe (ResourceId) }) -> SampledHTTPRequest
 ```
 
 Constructs SampledHTTPRequest's fields from required parameters
@@ -6028,7 +6028,7 @@ Constructs SizeConstraint's fields from required parameters
 
 ``` purescript
 newtype SizeConstraintSet
-  = SizeConstraintSet { "SizeConstraintSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "SizeConstraints" :: SizeConstraints }
+  = SizeConstraintSet { "SizeConstraintSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "SizeConstraints" :: SizeConstraints }
 ```
 
 <p>A complex type that contains <code>SizeConstraint</code> objects, which specify the parts of web requests that you want AWS WAF to inspect the size of. If a <code>SizeConstraintSet</code> contains more than one <code>SizeConstraint</code> object, a request only needs to match one constraint to be considered a match.</p>
@@ -6053,7 +6053,7 @@ Constructs SizeConstraintSet from required parameters
 #### `newSizeConstraintSet'`
 
 ``` purescript
-newSizeConstraintSet' :: ResourceId -> SizeConstraints -> ({ "SizeConstraintSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "SizeConstraints" :: SizeConstraints } -> { "SizeConstraintSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "SizeConstraints" :: SizeConstraints }) -> SizeConstraintSet
+newSizeConstraintSet' :: ResourceId -> SizeConstraints -> ({ "SizeConstraintSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "SizeConstraints" :: SizeConstraints } -> { "SizeConstraintSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "SizeConstraints" :: SizeConstraints }) -> SizeConstraintSet
 ```
 
 Constructs SizeConstraintSet's fields from required parameters
@@ -6178,7 +6178,7 @@ Encode SizeConstraints
 
 ``` purescript
 newtype SqlInjectionMatchSet
-  = SqlInjectionMatchSet { "SqlInjectionMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "SqlInjectionMatchTuples" :: SqlInjectionMatchTuples }
+  = SqlInjectionMatchSet { "SqlInjectionMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "SqlInjectionMatchTuples" :: SqlInjectionMatchTuples }
 ```
 
 <p>A complex type that contains <code>SqlInjectionMatchTuple</code> objects, which specify the parts of web requests that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header. If a <code>SqlInjectionMatchSet</code> contains more than one <code>SqlInjectionMatchTuple</code> object, a request needs to include snippets of SQL code in only one of the specified parts of the request to be considered a match.</p>
@@ -6203,7 +6203,7 @@ Constructs SqlInjectionMatchSet from required parameters
 #### `newSqlInjectionMatchSet'`
 
 ``` purescript
-newSqlInjectionMatchSet' :: ResourceId -> SqlInjectionMatchTuples -> ({ "SqlInjectionMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "SqlInjectionMatchTuples" :: SqlInjectionMatchTuples } -> { "SqlInjectionMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "SqlInjectionMatchTuples" :: SqlInjectionMatchTuples }) -> SqlInjectionMatchSet
+newSqlInjectionMatchSet' :: ResourceId -> SqlInjectionMatchTuples -> ({ "SqlInjectionMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "SqlInjectionMatchTuples" :: SqlInjectionMatchTuples } -> { "SqlInjectionMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "SqlInjectionMatchTuples" :: SqlInjectionMatchTuples }) -> SqlInjectionMatchSet
 ```
 
 Constructs SqlInjectionMatchSet's fields from required parameters
@@ -6510,7 +6510,7 @@ Constructs UpdateByteMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateByteMatchSetResponse
-  = UpdateByteMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateByteMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -6533,7 +6533,7 @@ Constructs UpdateByteMatchSetResponse from required parameters
 #### `newUpdateByteMatchSetResponse'`
 
 ``` purescript
-newUpdateByteMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateByteMatchSetResponse
+newUpdateByteMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateByteMatchSetResponse
 ```
 
 Constructs UpdateByteMatchSetResponse's fields from required parameters
@@ -6574,7 +6574,7 @@ Constructs UpdateGeoMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateGeoMatchSetResponse
-  = UpdateGeoMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateGeoMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -6597,7 +6597,7 @@ Constructs UpdateGeoMatchSetResponse from required parameters
 #### `newUpdateGeoMatchSetResponse'`
 
 ``` purescript
-newUpdateGeoMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateGeoMatchSetResponse
+newUpdateGeoMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateGeoMatchSetResponse
 ```
 
 Constructs UpdateGeoMatchSetResponse's fields from required parameters
@@ -6638,7 +6638,7 @@ Constructs UpdateIPSetRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateIPSetResponse
-  = UpdateIPSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateIPSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -6661,7 +6661,7 @@ Constructs UpdateIPSetResponse from required parameters
 #### `newUpdateIPSetResponse'`
 
 ``` purescript
-newUpdateIPSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateIPSetResponse
+newUpdateIPSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateIPSetResponse
 ```
 
 Constructs UpdateIPSetResponse's fields from required parameters
@@ -6702,7 +6702,7 @@ Constructs UpdateRateBasedRuleRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateRateBasedRuleResponse
-  = UpdateRateBasedRuleResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateRateBasedRuleResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -6725,7 +6725,7 @@ Constructs UpdateRateBasedRuleResponse from required parameters
 #### `newUpdateRateBasedRuleResponse'`
 
 ``` purescript
-newUpdateRateBasedRuleResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateRateBasedRuleResponse
+newUpdateRateBasedRuleResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateRateBasedRuleResponse
 ```
 
 Constructs UpdateRateBasedRuleResponse's fields from required parameters
@@ -6766,7 +6766,7 @@ Constructs UpdateRegexMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateRegexMatchSetResponse
-  = UpdateRegexMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateRegexMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -6789,7 +6789,7 @@ Constructs UpdateRegexMatchSetResponse from required parameters
 #### `newUpdateRegexMatchSetResponse'`
 
 ``` purescript
-newUpdateRegexMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateRegexMatchSetResponse
+newUpdateRegexMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateRegexMatchSetResponse
 ```
 
 Constructs UpdateRegexMatchSetResponse's fields from required parameters
@@ -6830,7 +6830,7 @@ Constructs UpdateRegexPatternSetRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateRegexPatternSetResponse
-  = UpdateRegexPatternSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateRegexPatternSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -6853,7 +6853,7 @@ Constructs UpdateRegexPatternSetResponse from required parameters
 #### `newUpdateRegexPatternSetResponse'`
 
 ``` purescript
-newUpdateRegexPatternSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateRegexPatternSetResponse
+newUpdateRegexPatternSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateRegexPatternSetResponse
 ```
 
 Constructs UpdateRegexPatternSetResponse's fields from required parameters
@@ -6894,7 +6894,7 @@ Constructs UpdateRuleGroupRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateRuleGroupResponse
-  = UpdateRuleGroupResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateRuleGroupResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -6917,7 +6917,7 @@ Constructs UpdateRuleGroupResponse from required parameters
 #### `newUpdateRuleGroupResponse'`
 
 ``` purescript
-newUpdateRuleGroupResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateRuleGroupResponse
+newUpdateRuleGroupResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateRuleGroupResponse
 ```
 
 Constructs UpdateRuleGroupResponse's fields from required parameters
@@ -6958,7 +6958,7 @@ Constructs UpdateRuleRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateRuleResponse
-  = UpdateRuleResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateRuleResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -6981,7 +6981,7 @@ Constructs UpdateRuleResponse from required parameters
 #### `newUpdateRuleResponse'`
 
 ``` purescript
-newUpdateRuleResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateRuleResponse
+newUpdateRuleResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateRuleResponse
 ```
 
 Constructs UpdateRuleResponse's fields from required parameters
@@ -7022,7 +7022,7 @@ Constructs UpdateSizeConstraintSetRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateSizeConstraintSetResponse
-  = UpdateSizeConstraintSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateSizeConstraintSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -7045,7 +7045,7 @@ Constructs UpdateSizeConstraintSetResponse from required parameters
 #### `newUpdateSizeConstraintSetResponse'`
 
 ``` purescript
-newUpdateSizeConstraintSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateSizeConstraintSetResponse
+newUpdateSizeConstraintSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateSizeConstraintSetResponse
 ```
 
 Constructs UpdateSizeConstraintSetResponse's fields from required parameters
@@ -7088,7 +7088,7 @@ Constructs UpdateSqlInjectionMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateSqlInjectionMatchSetResponse
-  = UpdateSqlInjectionMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateSqlInjectionMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 <p>The response to an <a>UpdateSqlInjectionMatchSets</a> request.</p>
@@ -7113,7 +7113,7 @@ Constructs UpdateSqlInjectionMatchSetResponse from required parameters
 #### `newUpdateSqlInjectionMatchSetResponse'`
 
 ``` purescript
-newUpdateSqlInjectionMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateSqlInjectionMatchSetResponse
+newUpdateSqlInjectionMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateSqlInjectionMatchSetResponse
 ```
 
 Constructs UpdateSqlInjectionMatchSetResponse's fields from required parameters
@@ -7122,7 +7122,7 @@ Constructs UpdateSqlInjectionMatchSetResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateWebACLRequest
-  = UpdateWebACLRequest { "WebACLId" :: ResourceId, "ChangeToken" :: ChangeToken, "Updates" :: NullOrUndefined (WebACLUpdates), "DefaultAction" :: NullOrUndefined (WafAction) }
+  = UpdateWebACLRequest { "WebACLId" :: ResourceId, "ChangeToken" :: ChangeToken, "Updates" :: Maybe (WebACLUpdates), "DefaultAction" :: Maybe (WafAction) }
 ```
 
 ##### Instances
@@ -7145,7 +7145,7 @@ Constructs UpdateWebACLRequest from required parameters
 #### `newUpdateWebACLRequest'`
 
 ``` purescript
-newUpdateWebACLRequest' :: ChangeToken -> ResourceId -> ({ "WebACLId" :: ResourceId, "ChangeToken" :: ChangeToken, "Updates" :: NullOrUndefined (WebACLUpdates), "DefaultAction" :: NullOrUndefined (WafAction) } -> { "WebACLId" :: ResourceId, "ChangeToken" :: ChangeToken, "Updates" :: NullOrUndefined (WebACLUpdates), "DefaultAction" :: NullOrUndefined (WafAction) }) -> UpdateWebACLRequest
+newUpdateWebACLRequest' :: ChangeToken -> ResourceId -> ({ "WebACLId" :: ResourceId, "ChangeToken" :: ChangeToken, "Updates" :: Maybe (WebACLUpdates), "DefaultAction" :: Maybe (WafAction) } -> { "WebACLId" :: ResourceId, "ChangeToken" :: ChangeToken, "Updates" :: Maybe (WebACLUpdates), "DefaultAction" :: Maybe (WafAction) }) -> UpdateWebACLRequest
 ```
 
 Constructs UpdateWebACLRequest's fields from required parameters
@@ -7154,7 +7154,7 @@ Constructs UpdateWebACLRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateWebACLResponse
-  = UpdateWebACLResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateWebACLResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 ##### Instances
@@ -7177,7 +7177,7 @@ Constructs UpdateWebACLResponse from required parameters
 #### `newUpdateWebACLResponse'`
 
 ``` purescript
-newUpdateWebACLResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateWebACLResponse
+newUpdateWebACLResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateWebACLResponse
 ```
 
 Constructs UpdateWebACLResponse's fields from required parameters
@@ -7220,7 +7220,7 @@ Constructs UpdateXssMatchSetRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateXssMatchSetResponse
-  = UpdateXssMatchSetResponse { "ChangeToken" :: NullOrUndefined (ChangeToken) }
+  = UpdateXssMatchSetResponse { "ChangeToken" :: Maybe (ChangeToken) }
 ```
 
 <p>The response to an <a>UpdateXssMatchSets</a> request.</p>
@@ -7245,7 +7245,7 @@ Constructs UpdateXssMatchSetResponse from required parameters
 #### `newUpdateXssMatchSetResponse'`
 
 ``` purescript
-newUpdateXssMatchSetResponse' :: ({ "ChangeToken" :: NullOrUndefined (ChangeToken) } -> { "ChangeToken" :: NullOrUndefined (ChangeToken) }) -> UpdateXssMatchSetResponse
+newUpdateXssMatchSetResponse' :: ({ "ChangeToken" :: Maybe (ChangeToken) } -> { "ChangeToken" :: Maybe (ChangeToken) }) -> UpdateXssMatchSetResponse
 ```
 
 Constructs UpdateXssMatchSetResponse's fields from required parameters
@@ -7254,7 +7254,7 @@ Constructs UpdateXssMatchSetResponse's fields from required parameters
 
 ``` purescript
 newtype WAFDisallowedNameException
-  = WAFDisallowedNameException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFDisallowedNameException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The name specified is invalid.</p>
@@ -7279,7 +7279,7 @@ Constructs WAFDisallowedNameException from required parameters
 #### `newWAFDisallowedNameException'`
 
 ``` purescript
-newWAFDisallowedNameException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFDisallowedNameException
+newWAFDisallowedNameException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFDisallowedNameException
 ```
 
 Constructs WAFDisallowedNameException's fields from required parameters
@@ -7288,7 +7288,7 @@ Constructs WAFDisallowedNameException's fields from required parameters
 
 ``` purescript
 newtype WAFInternalErrorException
-  = WAFInternalErrorException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFInternalErrorException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
@@ -7313,7 +7313,7 @@ Constructs WAFInternalErrorException from required parameters
 #### `newWAFInternalErrorException'`
 
 ``` purescript
-newWAFInternalErrorException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFInternalErrorException
+newWAFInternalErrorException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFInternalErrorException
 ```
 
 Constructs WAFInternalErrorException's fields from required parameters
@@ -7340,7 +7340,7 @@ Encode WAFInvalidAccountException
 
 ``` purescript
 newtype WAFInvalidOperationException
-  = WAFInvalidOperationException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFInvalidOperationException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add an IP address to an <code>IPSet</code>, but the IP address already exists in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
@@ -7365,7 +7365,7 @@ Constructs WAFInvalidOperationException from required parameters
 #### `newWAFInvalidOperationException'`
 
 ``` purescript
-newWAFInvalidOperationException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFInvalidOperationException
+newWAFInvalidOperationException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFInvalidOperationException
 ```
 
 Constructs WAFInvalidOperationException's fields from required parameters
@@ -7374,7 +7374,7 @@ Constructs WAFInvalidOperationException's fields from required parameters
 
 ``` purescript
 newtype WAFInvalidParameterException
-  = WAFInvalidParameterException { field :: NullOrUndefined (ParameterExceptionField), parameter :: NullOrUndefined (ParameterExceptionParameter), reason :: NullOrUndefined (ParameterExceptionReason) }
+  = WAFInvalidParameterException { field :: Maybe (ParameterExceptionField), parameter :: Maybe (ParameterExceptionParameter), reason :: Maybe (ParameterExceptionReason) }
 ```
 
 <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
@@ -7399,7 +7399,7 @@ Constructs WAFInvalidParameterException from required parameters
 #### `newWAFInvalidParameterException'`
 
 ``` purescript
-newWAFInvalidParameterException' :: ({ field :: NullOrUndefined (ParameterExceptionField), parameter :: NullOrUndefined (ParameterExceptionParameter), reason :: NullOrUndefined (ParameterExceptionReason) } -> { field :: NullOrUndefined (ParameterExceptionField), parameter :: NullOrUndefined (ParameterExceptionParameter), reason :: NullOrUndefined (ParameterExceptionReason) }) -> WAFInvalidParameterException
+newWAFInvalidParameterException' :: ({ field :: Maybe (ParameterExceptionField), parameter :: Maybe (ParameterExceptionParameter), reason :: Maybe (ParameterExceptionReason) } -> { field :: Maybe (ParameterExceptionField), parameter :: Maybe (ParameterExceptionParameter), reason :: Maybe (ParameterExceptionReason) }) -> WAFInvalidParameterException
 ```
 
 Constructs WAFInvalidParameterException's fields from required parameters
@@ -7408,7 +7408,7 @@ Constructs WAFInvalidParameterException's fields from required parameters
 
 ``` purescript
 newtype WAFInvalidPermissionPolicyException
-  = WAFInvalidPermissionPolicyException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFInvalidPermissionPolicyException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation failed because the specified policy is not in the proper format. </p> <p>The policy is subject to the following restrictions:</p> <ul> <li> <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p> </li> <li> <p>The policy must include an <code>Effect</code>, <code>Action</code> and <code>Principal</code>. </p> </li> <li> <p> <code>Effect</code> must specify <code>Allow</code>.</p> </li> <li> <p>The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code> or <code>waf-regional:UpdateWebACL</code>. Any extra or wildcard actions in the policy will be rejected.</p> </li> <li> <p>The policy cannot include a <code>Resource</code> parameter.</p> </li> <li> <p>The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.</p> </li> <li> <p>The user making the request must be the owner of the RuleGroup.</p> </li> <li> <p>Your policy must be composed using IAM Policy version 2012-10-17.</p> </li> </ul>
@@ -7433,7 +7433,7 @@ Constructs WAFInvalidPermissionPolicyException from required parameters
 #### `newWAFInvalidPermissionPolicyException'`
 
 ``` purescript
-newWAFInvalidPermissionPolicyException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFInvalidPermissionPolicyException
+newWAFInvalidPermissionPolicyException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFInvalidPermissionPolicyException
 ```
 
 Constructs WAFInvalidPermissionPolicyException's fields from required parameters
@@ -7442,7 +7442,7 @@ Constructs WAFInvalidPermissionPolicyException's fields from required parameters
 
 ``` purescript
 newtype WAFInvalidRegexPatternException
-  = WAFInvalidRegexPatternException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFInvalidRegexPatternException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.</p>
@@ -7467,7 +7467,7 @@ Constructs WAFInvalidRegexPatternException from required parameters
 #### `newWAFInvalidRegexPatternException'`
 
 ``` purescript
-newWAFInvalidRegexPatternException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFInvalidRegexPatternException
+newWAFInvalidRegexPatternException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFInvalidRegexPatternException
 ```
 
 Constructs WAFInvalidRegexPatternException's fields from required parameters
@@ -7476,7 +7476,7 @@ Constructs WAFInvalidRegexPatternException's fields from required parameters
 
 ``` purescript
 newtype WAFLimitsExceededException
-  = WAFLimitsExceededException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFLimitsExceededException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
@@ -7501,7 +7501,7 @@ Constructs WAFLimitsExceededException from required parameters
 #### `newWAFLimitsExceededException'`
 
 ``` purescript
-newWAFLimitsExceededException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFLimitsExceededException
+newWAFLimitsExceededException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFLimitsExceededException
 ```
 
 Constructs WAFLimitsExceededException's fields from required parameters
@@ -7510,7 +7510,7 @@ Constructs WAFLimitsExceededException's fields from required parameters
 
 ``` purescript
 newtype WAFNonEmptyEntityException
-  = WAFNonEmptyEntityException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFNonEmptyEntityException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
@@ -7535,7 +7535,7 @@ Constructs WAFNonEmptyEntityException from required parameters
 #### `newWAFNonEmptyEntityException'`
 
 ``` purescript
-newWAFNonEmptyEntityException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFNonEmptyEntityException
+newWAFNonEmptyEntityException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFNonEmptyEntityException
 ```
 
 Constructs WAFNonEmptyEntityException's fields from required parameters
@@ -7544,7 +7544,7 @@ Constructs WAFNonEmptyEntityException's fields from required parameters
 
 ``` purescript
 newtype WAFNonexistentContainerException
-  = WAFNonexistentContainerException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFNonexistentContainerException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
@@ -7569,7 +7569,7 @@ Constructs WAFNonexistentContainerException from required parameters
 #### `newWAFNonexistentContainerException'`
 
 ``` purescript
-newWAFNonexistentContainerException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFNonexistentContainerException
+newWAFNonexistentContainerException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFNonexistentContainerException
 ```
 
 Constructs WAFNonexistentContainerException's fields from required parameters
@@ -7578,7 +7578,7 @@ Constructs WAFNonexistentContainerException's fields from required parameters
 
 ``` purescript
 newtype WAFNonexistentItemException
-  = WAFNonexistentItemException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFNonexistentItemException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation failed because the referenced object doesn't exist.</p>
@@ -7603,7 +7603,7 @@ Constructs WAFNonexistentItemException from required parameters
 #### `newWAFNonexistentItemException'`
 
 ``` purescript
-newWAFNonexistentItemException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFNonexistentItemException
+newWAFNonexistentItemException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFNonexistentItemException
 ```
 
 Constructs WAFNonexistentItemException's fields from required parameters
@@ -7612,7 +7612,7 @@ Constructs WAFNonexistentItemException's fields from required parameters
 
 ``` purescript
 newtype WAFReferencedItemException
-  = WAFReferencedItemException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFReferencedItemException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
@@ -7637,7 +7637,7 @@ Constructs WAFReferencedItemException from required parameters
 #### `newWAFReferencedItemException'`
 
 ``` purescript
-newWAFReferencedItemException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFReferencedItemException
+newWAFReferencedItemException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFReferencedItemException
 ```
 
 Constructs WAFReferencedItemException's fields from required parameters
@@ -7646,7 +7646,7 @@ Constructs WAFReferencedItemException's fields from required parameters
 
 ``` purescript
 newtype WAFStaleDataException
-  = WAFStaleDataException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFStaleDataException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
@@ -7671,7 +7671,7 @@ Constructs WAFStaleDataException from required parameters
 #### `newWAFStaleDataException'`
 
 ``` purescript
-newWAFStaleDataException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFStaleDataException
+newWAFStaleDataException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFStaleDataException
 ```
 
 Constructs WAFStaleDataException's fields from required parameters
@@ -7680,7 +7680,7 @@ Constructs WAFStaleDataException's fields from required parameters
 
 ``` purescript
 newtype WAFSubscriptionNotFoundException
-  = WAFSubscriptionNotFoundException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFSubscriptionNotFoundException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The specified subscription does not exist.</p>
@@ -7705,7 +7705,7 @@ Constructs WAFSubscriptionNotFoundException from required parameters
 #### `newWAFSubscriptionNotFoundException'`
 
 ``` purescript
-newWAFSubscriptionNotFoundException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFSubscriptionNotFoundException
+newWAFSubscriptionNotFoundException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFSubscriptionNotFoundException
 ```
 
 Constructs WAFSubscriptionNotFoundException's fields from required parameters
@@ -7714,7 +7714,7 @@ Constructs WAFSubscriptionNotFoundException's fields from required parameters
 
 ``` purescript
 newtype WAFUnavailableEntityException
-  = WAFUnavailableEntityException { message :: NullOrUndefined (ErrorMessage') }
+  = WAFUnavailableEntityException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The operation failed because the entity referenced is temporarily unavailable. Retry your request.</p>
@@ -7739,7 +7739,7 @@ Constructs WAFUnavailableEntityException from required parameters
 #### `newWAFUnavailableEntityException'`
 
 ``` purescript
-newWAFUnavailableEntityException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> WAFUnavailableEntityException
+newWAFUnavailableEntityException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> WAFUnavailableEntityException
 ```
 
 Constructs WAFUnavailableEntityException's fields from required parameters
@@ -7864,7 +7864,7 @@ Encode WafRuleType
 
 ``` purescript
 newtype WebACL
-  = WebACL { "WebACLId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName), "DefaultAction" :: WafAction, "Rules" :: ActivatedRules }
+  = WebACL { "WebACLId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName), "DefaultAction" :: WafAction, "Rules" :: ActivatedRules }
 ```
 
 <p>Contains the <code>Rules</code> that identify the requests that you want to allow, block, or count. In a <code>WebACL</code>, you also specify a default action (<code>ALLOW</code> or <code>BLOCK</code>), and the action for each <code>Rule</code> that you add to a <code>WebACL</code>, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the <code>WebACL</code> with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one <code>Rule</code> to a <code>WebACL</code>, a request needs to match only one of the specifications to be allowed, blocked, or counted. For more information, see <a>UpdateWebACL</a>.</p>
@@ -7889,7 +7889,7 @@ Constructs WebACL from required parameters
 #### `newWebACL'`
 
 ``` purescript
-newWebACL' :: WafAction -> ActivatedRules -> ResourceId -> ({ "WebACLId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName), "DefaultAction" :: WafAction, "Rules" :: ActivatedRules } -> { "WebACLId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "MetricName" :: NullOrUndefined (MetricName), "DefaultAction" :: WafAction, "Rules" :: ActivatedRules }) -> WebACL
+newWebACL' :: WafAction -> ActivatedRules -> ResourceId -> ({ "WebACLId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName), "DefaultAction" :: WafAction, "Rules" :: ActivatedRules } -> { "WebACLId" :: ResourceId, "Name" :: Maybe (ResourceName), "MetricName" :: Maybe (MetricName), "DefaultAction" :: WafAction, "Rules" :: ActivatedRules }) -> WebACL
 ```
 
 Constructs WebACL's fields from required parameters
@@ -7998,7 +7998,7 @@ Encode WebACLUpdates
 
 ``` purescript
 newtype XssMatchSet
-  = XssMatchSet { "XssMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "XssMatchTuples" :: XssMatchTuples }
+  = XssMatchSet { "XssMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "XssMatchTuples" :: XssMatchTuples }
 ```
 
 <p>A complex type that contains <code>XssMatchTuple</code> objects, which specify the parts of web requests that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header. If a <code>XssMatchSet</code> contains more than one <code>XssMatchTuple</code> object, a request needs to include cross-site scripting attacks in only one of the specified parts of the request to be considered a match.</p>
@@ -8023,7 +8023,7 @@ Constructs XssMatchSet from required parameters
 #### `newXssMatchSet'`
 
 ``` purescript
-newXssMatchSet' :: ResourceId -> XssMatchTuples -> ({ "XssMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "XssMatchTuples" :: XssMatchTuples } -> { "XssMatchSetId" :: ResourceId, "Name" :: NullOrUndefined (ResourceName), "XssMatchTuples" :: XssMatchTuples }) -> XssMatchSet
+newXssMatchSet' :: ResourceId -> XssMatchTuples -> ({ "XssMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "XssMatchTuples" :: XssMatchTuples } -> { "XssMatchSetId" :: ResourceId, "Name" :: Maybe (ResourceName), "XssMatchTuples" :: XssMatchTuples }) -> XssMatchSet
 ```
 
 Constructs XssMatchSet's fields from required parameters
